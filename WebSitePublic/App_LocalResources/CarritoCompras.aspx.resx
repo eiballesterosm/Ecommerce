@@ -1,0 +1,636 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="mailTemplate" xml:space="preserve">
+    <value>&lt;!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"&gt;
+&lt;html xmlns="http://www.w3.org/1999/xhtml"&gt;
+&lt;head&gt;
+    &lt;meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /&gt;
+    &lt;meta name="viewport" content="width=device-width" /&gt;
+    &lt;title&gt;NoticeLab 09 | Email Template&lt;/title&gt;
+    &lt;style type="text/css"&gt;
+        /*////// RESET STYLES //////*/
+        body {
+            height: 100% !important;
+            margin: 0;
+            padding: 0;
+            width: 100% !important;
+        }
+
+        table {
+            border-collapse: separate;
+        }
+
+        img, a img {
+            border: 0;
+            outline: none;
+            text-decoration: none;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            margin: 0;
+            padding: 0;
+        }
+
+        p {
+            margin: 1em 0;
+        }
+
+        /*////// CLIENT-SPECIFIC STYLES //////*/
+        .ReadMsgBody {
+            width: 100%;
+        }
+
+        .ExternalClass {
+            width: 100%;
+        }
+
+            .ExternalClass, .ExternalClass p, .ExternalClass span, .ExternalClass font, .ExternalClass td, .ExternalClass div {
+                line-height: 100%;
+            }
+
+        table, td {
+            mso-table-lspace: 0pt;
+            mso-table-rspace: 0pt;
+        }
+
+        #outlook a {
+            padding: 0;
+        }
+
+        img {
+            -ms-interpolation-mode: bicubic;
+        }
+
+        body, table, td, p, a, li, blockquote {
+            -ms-text-size-adjust: 100%;
+            -webkit-text-size-adjust: 100%;
+        }
+
+        /*////// GENERAL STYLES //////*/
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        /*////// TABLET STYLES //////*/
+        @media only screen and (max-width: 620px) {
+            .shrink_font {
+                font-size: 62px;
+            }
+            /*////// GENERAL STYLES //////*/
+            #foxeslab-email .table1 {
+                width: 90% !important;
+            }
+
+            #foxeslab-email .table1-2 {
+                width: 98% !important;
+                margin-left: 1%;
+                margin-right: 1%;
+            }
+
+            #foxeslab-email .table1-3 {
+                width: 98% !important;
+                margin-left: 1%;
+                margin-right: 1%;
+            }
+
+            #foxeslab-email .table1-4 {
+                width: 98% !important;
+                margin-left: 1%;
+                margin-right: 1%;
+            }
+
+            #foxeslab-email .table1-5 {
+                width: 90% !important;
+                margin-left: 5%;
+                margin-right: 5%;
+            }
+
+            #foxeslab-email .tablet_no_float {
+                clear: both;
+                width: 100% !important;
+                margin: 0 auto !important;
+                text-align: center !important;
+            }
+
+            #foxeslab-email .tablet_wise_float {
+                clear: both;
+                float: none !important;
+                width: auto !important;
+                margin: 0 auto !important;
+                text-align: center !important;
+            }
+
+            #foxeslab-email .tablet_hide {
+                display: none !important;
+            }
+
+            #foxeslab-email .image1 {
+                width: 98% !important;
+            }
+
+            #foxeslab-email .image1-290 {
+                width: 100% !important;
+                max-width: 290px !important;
+            }
+
+            .center_content {
+                text-align: center !important;
+            }
+
+            .center_image {
+                margin: 0 auto !important;
+            }
+
+            .center_button {
+                width: 50% !important;
+                margin-left: 25% !important;
+                max-width: 250px !important;
+            }
+
+            .centerize {
+                margin: 0 auto !important;
+            }
+        }
+
+
+        /*////// MOBILE STYLES //////*/
+        @media only screen and (max-width: 480px) {
+            .shrink_font {
+                font-size: 48px;
+            }
+
+            .safe_color {
+                color: #6a1b9a !important;
+            }
+            /*////// CLIENT-SPECIFIC STYLES //////*/
+            body {
+                width: 100% !important;
+                min-width: 100% !important;
+            }
+            /* Force iOS Mail to render the email at full width. */
+            table[class="flexibleContainer"] {
+                width: 100% !important;
+            }
+            /* to prevent Yahoo Mail from rendering media query styles on desktop */
+
+            /*////// GENERAL STYLES //////*/
+            img[class="flexibleImage"] {
+                height: auto !important;
+                width: 100% !important;
+            }
+
+            #foxeslab-email .table1 {
+                width: 98% !important;
+            }
+
+            #foxeslab-email .no_float {
+                clear: both;
+                width: 100% !important;
+                margin: 0 auto !important;
+                text-align: center !important;
+            }
+
+            #foxeslab-email .wise_float {
+                clear: both;
+                float: none !important;
+                width: auto !important;
+                margin: 0 auto !important;
+                text-align: center !important;
+            }
+
+            #foxeslab-email .mobile_hide {
+                display: none !important;
+            }
+
+            .auto_height {
+                height: auto !important;
+            }
+        }
+    &lt;/style&gt;
+&lt;/head&gt;
+&lt;body style="padding: 0;margin: 0;" id="foxeslab-email"&gt;
+
+    &lt;!-- template-9 --&gt;
+    &lt;table class="table_full editable-bg-color bg_color_ffffff editable-bg-image" bgcolor="#ffffff" width="100%" align="center" mc:repeatable="castellab" mc:variant="Header" cellspacing="0" cellpadding="0" border="0" style="background-image: url(#); background-repeat: no-repeat; background-position: center left; background-size: 100% 100%; border-collapse: collapse; mso-table-lspace: 0pt; mso-table-rspace: 0pt;" background="#"&gt;
+        &lt;!-- padding-top --&gt;
+        &lt;tr&gt;&lt;td height="100"&gt;&lt;/td&gt;&lt;/tr&gt;
+
+        &lt;!-- header --&gt;
+        &lt;tr&gt;
+            &lt;td&gt;
+                &lt;table class="table1" width="600" align="center" border="0" cellspacing="0" cellpadding="0"&gt;
+                    &lt;tr&gt;
+                        &lt;td bgcolor="#333333" style="padding-top: 30px;padding-right: 40px;padding-bottom: 0;padding-left: 40px; border: 1px solid #f2f2f2; border-radius: 5px;"&gt;
+                            &lt;!-- Logo --&gt;
+                            &lt;table class="no_float" align="left" border="0" cellspacing="0" cellpadding="0"&gt;
+                                &lt;tr&gt;
+                                    &lt;td class="editable-img" align="center"&gt;
+                                        &lt;a href="#"&gt;
+                                            &lt;img editable="true" class="centerize" mc:edit="image101" src="cid:@@brandLogo@@" style="display:block; line-height:0; font-size:0; border:0;" border="0" alt="image" /&gt;
+                                        &lt;/a&gt;
+                                    &lt;/td&gt;
+                                &lt;/tr&gt;
+                                &lt;!-- margin-bottom --&gt;
+                                &lt;tr&gt;&lt;td height="30"&gt;&lt;/td&gt;&lt;/tr&gt;
+                            &lt;/table&gt;&lt;!-- END logo --&gt;
+                            &lt;!-- social icons --&gt;
+                            &lt;table class="no_float" width="135" align="right" border="0" cellspacing="0" cellpadding="0"&gt;
+                                &lt;tr&gt;
+                                    &lt;td&gt;
+                                        &lt;table width="135" align="center" border="0" cellspacing="0" cellpadding="0" style="max-width: 135px;"&gt;
+                                            &lt;tr&gt;
+                                                &lt;td class="editable-img" align="center"&gt;
+                                                    &lt;a href="#"&gt;
+                                                        &lt;img editable="true" class="centerize" mc:edit="image102" src="cid:@@twitterLogo@@" style="display:block; line-height:0; font-size:0; border:0;" border="0" alt="image" /&gt;
+                                                    &lt;/a&gt;
+                                                &lt;/td&gt;
+                                                &lt;td class="editable-img" align="center"&gt;
+                                                    &lt;a href="#"&gt;
+                                                        &lt;img editable="true" class="centerize" mc:edit="image103" src="cid:@@twitterLogo@@" style="display:block; line-height:0; font-size:0; border:0;" border="0" alt="image" /&gt;
+                                                    &lt;/a&gt;
+                                                &lt;/td&gt;
+                                                &lt;td class="editable-img" align="right"&gt;
+                                                    &lt;a href="#"&gt;
+                                                        &lt;img editable="true" class="centerize" mc:edit="image104" src="cid:@@facebookLogo@@" style="display:block; line-height:0; font-size:0; border:0;" border="0" alt="image" /&gt;
+                                                    &lt;/a&gt;
+                                                &lt;/td&gt;
+                                            &lt;/tr&gt;
+                                        &lt;/table&gt;
+                                    &lt;/td&gt;
+                                &lt;/tr&gt;
+                                &lt;!-- margin-bottom --&gt;
+                                &lt;tr&gt;&lt;td height="30"&gt;&lt;/td&gt;&lt;/tr&gt;
+                            &lt;/table&gt;&lt;!-- END social icons --&gt;
+                        &lt;/td&gt;
+                    &lt;/tr&gt;
+                &lt;/table&gt;
+            &lt;/td&gt;
+        &lt;/tr&gt;&lt;!-- END header --&gt;
+        &lt;!-- horizontal gap --&gt;
+        &lt;tr&gt;&lt;td height="25"&gt;&lt;/td&gt;&lt;/tr&gt;
+
+        &lt;!-- body --&gt;
+        &lt;tr&gt;
+            &lt;td&gt;
+                &lt;table class="table1" width="600" align="center" border="0" cellspacing="0" cellpadding="0"&gt;
+                    &lt;tr&gt;
+                        &lt;td bgcolor="#fcfcfc" style="padding: 40px 0;border: 1px solid #f2f2f2;border-radius: 5px;"&gt;
+                            &lt;!-- body-container --&gt;
+                            &lt;table class="table1" width="520" align="center" border="0" cellspacing="0" cellpadding="0"&gt;
+
+                                &lt;!-- email heading --&gt;
+                                &lt;tr&gt;
+                                    &lt;td align="left" mc:edit="text101" class="text_color_282828 center_content" style="line-height: 1;color: #282828; font-size: 18px; font-weight: 600; font-family: 'Open Sans', Helvetica, sans-serif; mso-line-height-rule: exactly;"&gt;
+                                        &lt;div class="editable-text"&gt;
+                                            &lt;span class="text_container" style="line-height: 1.6;"&gt;Hola Adam a continuación encontrarás el resumen y el total a pagar de tu compra.&lt;/span&gt;
+                                        &lt;/div&gt;
+                                    &lt;/td&gt;
+                                &lt;/tr&gt;&lt;!-- END email heading --&gt;
+                                &lt;!-- horizontal gap --&gt;
+                                &lt;tr&gt;&lt;td height="20"&gt;&lt;/td&gt;&lt;/tr&gt;
+
+                                &lt;!-- email details --&gt;
+                                &lt;tr&gt;
+                                    &lt;td align="left" mc:edit="text102" class="text_color_c6c6c6 center_content" style="line-height: 1.8;color: #c6c6c6; font-size: 14px; font-weight: 400; font-family: 'Open Sans', Helvetica, sans-serif; mso-line-height-rule: exactly;"&gt;
+                                        &lt;div class="editable-text"&gt;
+                                            &lt;span class="text_container"&gt;En instantes nos comunicaremos contigo para informarte sobre nuestras opciones de pago y el proceso a seguir para que tengas tus prendas cuanto antes.&lt;/span&gt;
+                                        &lt;/div&gt;
+                                    &lt;/td&gt;
+                                &lt;/tr&gt;&lt;!-- END email details --&gt;
+                                &lt;!-- horizontal gap --&gt;
+                                &lt;tr&gt;&lt;td height="45"&gt;&lt;/td&gt;&lt;/tr&gt;
+
+                                &lt;!-- horizontal separator --&gt;
+                                &lt;tr&gt;
+                                    &lt;td&gt;
+                                        &lt;table align="center" class="table1" width="460" border="0" cellpadding="0" cellspacing="0"&gt;
+                                            &lt;tr&gt;&lt;td height="1" bgcolor="#e0e0e0"&gt;&lt;/td&gt;&lt;/tr&gt;
+                                        &lt;/table&gt;
+                                    &lt;/td&gt;
+                                &lt;/tr&gt;
+
+                                &lt;!-- horizontal gap --&gt;
+                                &lt;tr&gt;&lt;td height="40"&gt;&lt;/td&gt;&lt;/tr&gt;
+
+                                @@products@@
+
+
+                                &lt;!-- row-5 --&gt;
+                                &lt;tr&gt;
+                                    &lt;td bgcolor="#ffffff" style="padding: 0 20px;border: 1px solid #ebebeb;border-radius: 5px;"&gt;
+                                        &lt;table align="center" border="0" cellpadding="0" cellspacing="0"&gt;
+                                            &lt;tr&gt;
+
+                                                &lt;!-- column-3 --&gt;
+                                                &lt;table width="100%" class="table1-3" align="center" border="0" cellpadding="0" cellspacing="0"&gt;
+                                                    &lt;!-- margin-top --&gt;
+                                                    &lt;tr&gt;&lt;td height="25"&gt;&lt;/td&gt;&lt;/tr&gt;
+                                                    &lt;tr&gt;
+                                                        &lt;td valign="top"&gt;
+                                                            &lt;table align="center" border="0" cellspacing="0" cellpadding="0"&gt;
+                                                                &lt;tr&gt;
+                                                                    &lt;td align="center" mc:edit="text117" class="text_color_282828 center_content" style="line-height: 1;color: #282828;font-size: 14px; font-weight: 600; font-family: 'Open Sans', Helvetica, sans-serif; mso-line-height-rule: exactly;"&gt;
+                                                                        &lt;div class="editable-text"&gt;
+                                                                            &lt;span class="text_container" style="font-size: 24px;"&gt;TOTAL&lt;/span&gt;
+                                                                        &lt;/div&gt;
+                                                                    &lt;/td&gt;
+                                                                &lt;/tr&gt;
+
+                                                                &lt;!-- horizontal gap --&gt;
+                                                                &lt;tr&gt;&lt;td height="15"&gt;&lt;/td&gt;&lt;/tr&gt;
+
+                                                                &lt;tr&gt;
+                                                                    &lt;td align="center" mc:edit="text118" class="text_color_93c054 center_content" style="line-height: 1;color: #93c054;font-size: 14px; font-weight: 600; font-family: 'Open Sans', Helvetica, sans-serif; mso-line-height-rule: exactly;"&gt;
+                                                                        &lt;div class="editable-text"&gt;
+                                                                            &lt;span class="text_container" style="font-size: 24px;"&gt;@@productsTotal@@&lt;/span&gt;
+                                                                        &lt;/div&gt;
+                                                                    &lt;/td&gt;
+                                                                &lt;/tr&gt;
+                                                            &lt;/table&gt;
+                                                        &lt;/td&gt;
+                                                    &lt;/tr&gt;
+                                                    &lt;!-- margin-bottom --&gt;
+                                                    &lt;tr&gt;&lt;td height="20"&gt;&lt;/td&gt;&lt;/tr&gt;
+                                                &lt;/table&gt;&lt;!-- ENd column-3 --&gt;
+
+                                            &lt;/tr&gt;
+                                        &lt;/table&gt;
+                                    &lt;/td&gt;
+                                &lt;/tr&gt;&lt;!-- END row-5 --&gt;
+
+
+                            &lt;/table&gt;&lt;!-- END body-container --&gt;
+                        &lt;/td&gt;
+                    &lt;/tr&gt;
+                &lt;/table&gt;
+            &lt;/td&gt;
+        &lt;/tr&gt;&lt;!-- END body --&gt;
+        &lt;!-- horizontal gap --&gt;
+        &lt;tr&gt;&lt;td height="40"&gt;&lt;/td&gt;&lt;/tr&gt;
+
+        &lt;!-- footer --&gt;
+        &lt;tr&gt;
+            &lt;td&gt;
+                &lt;table class="table1" width="600" align="center" border="0" cellspacing="0" cellpadding="0"&gt;
+                    &lt;tr&gt;
+                        &lt;td align="center" mc:edit="text119" class="text_color_c6c6c6" style="line-height: 1;color: #c6c6c6; font-size: 14px; font-weight: 400; font-family: 'Open Sans', Helvetica, sans-serif; mso-line-height-rule: exactly;"&gt;
+                            &lt;div class="editable-text"&gt;
+                                &lt;span class="text_container"&gt;&amp;copy; MariaC Store. All Rights Reserved.&lt;/span&gt;
+                            &lt;/div&gt;
+                        &lt;/td&gt;
+                    &lt;/tr&gt;
+                    &lt;!-- horizontal gap --&gt;
+                    &lt;tr&gt;&lt;td height="15"&gt;&lt;/td&gt;&lt;/tr&gt;
+
+                    &lt;tr&gt;
+                        &lt;td align="center" mc:edit="text120" class="text_color_c6c6c6" style="line-height: 1;color: #c6c6c6; font-size: 14px; font-weight: 400; font-family: 'Open Sans', Helvetica, sans-serif; mso-line-height-rule: exactly;"&gt;
+                            &lt;div class="editable-text"&gt;
+                                &lt;span class="text_container"&gt; WhatsApp &amp;middot; 3013979464&lt;/span&gt;
+                            &lt;/div&gt;
+                        &lt;/td&gt;
+                    &lt;/tr&gt;
+                &lt;/table&gt;
+            &lt;/td&gt;
+        &lt;/tr&gt;&lt;!-- END footer --&gt;
+        &lt;!-- padding-bottom --&gt;
+        &lt;tr&gt;&lt;td height="100"&gt;&lt;/td&gt;&lt;/tr&gt;
+    &lt;/table&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;</value>
+  </data>
+  <data name="mailTemplateRow" xml:space="preserve">
+    <value>&lt;!-- row-1 --&gt;
+&lt;tr&gt;
+    &lt;td bgcolor="#ffffff" style="padding: 0 20px;border: 1px solid #ebebeb;border-radius: 5px;"&gt;
+        &lt;table border="0" cellpadding="0" cellspacing="0"&gt;
+            &lt;tr&gt;
+                &lt;td&gt;
+                    &lt;!-- column-1 --&gt;
+                    &lt;table width="105" class="table1-3" align="left" border="0" cellpadding="0" cellspacing="0"&gt;
+                        &lt;!-- margin-top --&gt;
+                        &lt;tr&gt;&lt;td height="20"&gt;&lt;/td&gt;&lt;/tr&gt;
+                        &lt;tr&gt;
+                            &lt;td&gt;
+                                &lt;table height="117" width="105" align="center" border="0" cellpadding="0" cellspacing="0" style="max-width: 100px;"&gt;
+                                    &lt;tr&gt;
+                                        &lt;td align="center" valign="middle" bgcolor="#fcfcfc" style="border: 1px solid #ebebeb;border-radius: 5px;" class="editable-img"&gt;
+                                            &lt;a href="#"&gt;
+                                                &lt;img src="cid:@@productImage@@" style="display:block; line-height:0; font-size:0; border:0;max-width: 100%;" border="0" alt="image" /&gt;
+                                            &lt;/a&gt;
+                                        &lt;/td&gt;
+                                    &lt;/tr&gt;
+                                &lt;/table&gt;
+                            &lt;/td&gt;
+                        &lt;/tr&gt;
+                        &lt;!-- margin-bottom --&gt;
+                        &lt;tr class="tablet_hide"&gt;&lt;td height="20"&gt;&lt;/td&gt;&lt;/tr&gt;
+                    &lt;/table&gt;&lt;!-- ENd column-1 --&gt;
+                    &lt;!-- vertical gutter --&gt;
+                    &lt;table class="table1-3" width="19" align="left" border="0" cellpadding="0" cellspacing="0"&gt;
+                        &lt;tr&gt;&lt;td height="1"&gt;&lt;/td&gt;&lt;/tr&gt;
+                    &lt;/table&gt;
+
+                    &lt;!-- column-2 --&gt;
+                    &lt;table width="265" class="table1-3" align="left" border="0" cellpadding="0" cellspacing="0"&gt;
+                        &lt;!-- margin-top --&gt;
+                        &lt;tr&gt;&lt;td height="25"&gt;&lt;/td&gt;&lt;/tr&gt;
+                        &lt;tr&gt;
+                            &lt;td&gt;
+                                &lt;table width="265" align="center" border="0" cellpadding="0" cellspacing="0" style="max-width: 265px;"&gt;
+                                    &lt;tr&gt;
+                                        &lt;td align="left" mc:edit="text103" class="text_color_282828 center_content" style="line-height: 1;color: #282828;font-size: 14px; font-weight: 600; font-family: 'Open Sans', Helvetica, sans-serif; mso-line-height-rule: exactly;"&gt;
+                                            &lt;div class="editable-text"&gt;
+                                                &lt;span class="text_container"&gt;@@productName@@&lt;/span&gt;
+                                            &lt;/div&gt;
+                                        &lt;/td&gt;
+                                    &lt;/tr&gt;
+
+                                    &lt;!-- horizontal gap --&gt;
+                                    &lt;tr&gt;&lt;td height="10"&gt;&lt;/td&gt;&lt;/tr&gt;
+
+                                    &lt;tr&gt;
+                                        &lt;td align="left" mc:edit="text104" class="text_color_c6c6c6 center_content" style="line-height: 1.8;color: #c6c6c6;font-size: 12px; font-weight: 400; font-family: 'Open Sans', Helvetica, sans-serif; mso-line-height-rule: exactly;"&gt;
+                                            &lt;div class="editable-text"&gt;
+                                                &lt;span class="text_container"&gt;@@productDescription@@&lt;/span&gt;
+                                            &lt;/div&gt;
+                                        &lt;/td&gt;
+                                    &lt;/tr&gt;
+
+                                    &lt;!-- horizontal gap --&gt;
+                                    &lt;tr&gt;&lt;td height="10"&gt;&lt;/td&gt;&lt;/tr&gt;
+
+                                    &lt;tr&gt;
+                                        &lt;td align="left" mc:edit="text104" class="text_color_c6c6c6 center_content" style="line-height: 1.8;color: #c6c6c6;font-size: 12px; font-weight: 400; font-family: 'Open Sans', Helvetica, sans-serif; mso-line-height-rule: exactly;"&gt;
+                                            &lt;div class="editable-text"&gt;
+                                                &lt;span class="text_container"&gt;@@productTotal@@&lt;/span&gt;
+                                            &lt;/div&gt;
+                                        &lt;/td&gt;
+                                    &lt;/tr&gt;
+                                &lt;/table&gt;
+                            &lt;/td&gt;
+                        &lt;/tr&gt;
+                        &lt;!-- margin-bottom --&gt;
+                        &lt;tr class="tablet_hide"&gt;&lt;td height="20"&gt;&lt;/td&gt;&lt;/tr&gt;
+                    &lt;/table&gt;&lt;!-- ENd column-2 --&gt;
+                    &lt;!-- vertical gutter --&gt;
+                    &lt;table class="table1-3" width="19" align="left" border="0" cellpadding="0" cellspacing="0"&gt;
+                        &lt;tr&gt;&lt;td height="1"&gt;&lt;/td&gt;&lt;/tr&gt;
+                    &lt;/table&gt;
+
+                    &lt;!-- column-3 --&gt;
+                    &lt;table width="70" class="table1-3" align="right" border="0" cellpadding="0" cellspacing="0"&gt;
+                        &lt;!-- margin-top --&gt;
+                        &lt;tr&gt;&lt;td height="25"&gt;&lt;/td&gt;&lt;/tr&gt;
+                        &lt;tr&gt;
+                            &lt;td valign="top"&gt;
+                                &lt;table align="center" border="0" cellspacing="0" cellpadding="0"&gt;
+                                    &lt;tr&gt;
+                                        &lt;td align="center" mc:edit="text105" class="text_color_282828 center_content" style="line-height: 1;color: #282828;font-size: 14px; font-weight: 600; font-family: 'Open Sans', Helvetica, sans-serif; mso-line-height-rule: exactly;"&gt;
+                                            &lt;div class="editable-text"&gt;
+                                                &lt;span class="text_container"&gt;PRECIO&lt;/span&gt;
+                                            &lt;/div&gt;
+                                        &lt;/td&gt;
+                                    &lt;/tr&gt;
+
+                                    &lt;!-- horizontal gap --&gt;
+                                    &lt;tr&gt;&lt;td height="15"&gt;&lt;/td&gt;&lt;/tr&gt;
+
+                                    &lt;tr&gt;
+                                        &lt;td align="center" mc:edit="text106" class="text_color_93c054 center_content" style="line-height: 1;color: #93c054;font-size: 14px; font-weight: 600; font-family: 'Open Sans', Helvetica, sans-serif; mso-line-height-rule: exactly;"&gt;
+                                            &lt;div class="editable-text"&gt;
+                                                &lt;span class="text_container"&gt;@@productPrice@@&lt;/span&gt;
+                                            &lt;/div&gt;
+                                        &lt;/td&gt;
+                                    &lt;/tr&gt;
+                                &lt;/table&gt;
+                            &lt;/td&gt;
+                        &lt;/tr&gt;
+                        &lt;!-- margin-bottom --&gt;
+                        &lt;tr&gt;&lt;td height="20"&gt;&lt;/td&gt;&lt;/tr&gt;
+                    &lt;/table&gt;&lt;!-- ENd column-3 --&gt;
+                &lt;/td&gt;
+            &lt;/tr&gt;
+        &lt;/table&gt;
+    &lt;/td&gt;
+&lt;/tr&gt;&lt;!-- END row-1 --&gt;</value>
+  </data>
+</root>

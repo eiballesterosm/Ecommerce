@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<items>
+  <item Text="Home" NavigateUrl="/Default.aspx" />
+  <item Text="Categorias" NavigateUrl="/Categories.aspx"/>
+  <item Text="Tipos de Productos" NavigateUrl="/ProductTypes.aspx"/>
+  <item Text="Marcas" NavigateUrl="/Brands.aspx"/>
+  <item Text="Productos" NavigateUrl="/Products.aspx"/>
+</items>
