@@ -52,6 +52,24 @@ namespace DAO
             return result;
         }
 
+        public int DeleteCategory(Category category)
+        {
+            int result = -1;
+            try
+            {
+                Database database = DatabaseFactory.CreateDatabase();
+                DbCommand command = database.GetStoredProcCommand(storedProcedureName);
+                database.AddInParameter(command, "@pOperation", DbType.Int32, 5);
+                AddParameters(category, database, command);
+                result = database.ExecuteNonQuery(command);
+            }
+            catch (Exception exc)
+            {
+                //Crear Exception
+            }
+            return result;
+        }
+
         public List<Category> GetAllCategories()
         {
             List<Category> listAllCategories = null;
