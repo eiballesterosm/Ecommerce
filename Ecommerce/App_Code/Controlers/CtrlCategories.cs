@@ -1,7 +1,8 @@
-﻿using System.Collections.Generic;
-using System.ComponentModel;
-using DAO;
+﻿using DAO;
 using Entities;
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
 
 /// <summary>
 /// Summary description for CtrlCategories
@@ -32,12 +33,38 @@ public class CtrlCategories
     public void UpdateCategory(int id, string name, string description)
     {
         CategoriesDAO dao = new CategoriesDAO();
-        Category updateCategory = dao.GetCategory(id);
+        List<Category> categoryList = GetAllCategories();
+        //Category updateCategory = dao.GetCategory(id);
+        Category updateCategory = categoryList.Find(c => c.id.Equals(id));
         if (updateCategory != null)
         {
+            if (categoryList.FindAll(c => (c.name.ToUpperInvariant().Equals(name.ToUpperInvariant())) && (c.id != id)).Count > 0)
+            {
+                throw new Exception("Ya existe una categoría con este nombre");
+            }
+
             updateCategory.name = name;
             updateCategory.description = description;
             dao.UpdateCategory(updateCategory);
+        }
+        else
+        {
+            throw new Exception("El id de la categoría a actualizar no es válida");
+        }
+    }
+
+    [DataObjectMethod(DataObjectMethodType.Update)]
+    public void DeleteCategory(int id)
+    {
+        CategoriesDAO dao = new CategoriesDAO();
+        Category updateCategory = dao.GetCategory(id);
+        if (updateCategory != null)
+        {
+            dao.DeleteCategory(updateCategory);
+        }
+        else
+        {
+            throw new Exception("El id de la categoría a eliminar no es válida");
         }
     }
 }
