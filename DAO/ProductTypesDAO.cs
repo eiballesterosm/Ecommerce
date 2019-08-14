@@ -1,9 +1,9 @@
-﻿using System;
+﻿using Entities;
+using Microsoft.Practices.EnterpriseLibrary.Data;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Common;
-using Entities;
-using Microsoft.Practices.EnterpriseLibrary.Data;
 using System.Linq;
 
 namespace DAO
@@ -50,6 +50,24 @@ namespace DAO
             return result;
         }
 
+        public int DeleteProductType(ProductType productType)
+        {
+            int result = -1;
+            try
+            {
+                Database dataBase = DatabaseFactory.CreateDatabase();
+                DbCommand command = dataBase.GetStoredProcCommand(storedProcedureName);
+                dataBase.AddInParameter(command, "@pOperation", DbType.Int32, 5);
+                AddParameters(productType, dataBase, command);
+                return dataBase.ExecuteNonQuery(command);
+            }
+            catch (Exception ex)
+            {
+                //Crear Excepcion
+            }
+            return result;
+        }
+
         public List<ProductType> GetAllProductTypes()
         {
             List<ProductType> listAllProductTypes = null;
@@ -70,7 +88,6 @@ namespace DAO
             }
             return listAllProductTypes;
         }
-
 
         public ProductType GetProductType(int id)
         {
@@ -96,7 +113,6 @@ namespace DAO
 
             return productType;
         }
-
 
         private void AddParameters(ProductType productType, Database dataBase, DbCommand command)
         {
