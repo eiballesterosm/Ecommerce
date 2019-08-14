@@ -22,49 +22,73 @@ public class CtrlCategories
     [DataObjectMethod(DataObjectMethodType.Insert, false)]
     public void InsertCategory(string name, string description)
     {
+        name = name.TrimEnd().TrimStart();
+        description = description.TrimEnd().TrimStart();
+
         CategoriesDAO dao = new CategoriesDAO();
+        List<Category> categories = GetAllCategories();
+        if (categories.FindAll(c => (c.name.ToUpperInvariant().Equals(name.ToUpperInvariant()))).Count > 0)
+        {
+            throw new Exception("Ya existe una Categoría con este nombre");
+        }
+
         Category newCategory = new Category();
         newCategory.name = name;
         newCategory.description = description;
-        dao.CreateCategory(newCategory);
+        int result = dao.CreateCategory(newCategory);
+        if (result < 1)
+        {
+            throw new Exception("No es posible registrar la Categoría");
+        }
     }
 
     [DataObjectMethod(DataObjectMethodType.Update)]
     public void UpdateCategory(int id, string name, string description)
     {
+        name = name.TrimEnd().TrimStart();
+        description = description.TrimEnd().TrimStart();
+
         CategoriesDAO dao = new CategoriesDAO();
-        List<Category> categoryList = GetAllCategories();
+        List<Category> categories = GetAllCategories();
         //Category updateCategory = dao.GetCategory(id);
-        Category updateCategory = categoryList.Find(c => c.id.Equals(id));
+        Category updateCategory = categories.Find(c => c.id.Equals(id));
         if (updateCategory != null)
         {
-            if (categoryList.FindAll(c => (c.name.ToUpperInvariant().Equals(name.ToUpperInvariant())) && (c.id != id)).Count > 0)
+            if (categories.FindAll(c => (c.name.ToUpperInvariant().Equals(name.ToUpperInvariant())) && (c.id != id)).Count > 0)
             {
-                throw new Exception("Ya existe una categoría con este nombre");
+                throw new Exception("Ya existe una Categoría con este nombre");
             }
 
             updateCategory.name = name;
             updateCategory.description = description;
-            dao.UpdateCategory(updateCategory);
+            int result = dao.UpdateCategory(updateCategory);
+            if (result < 1)
+            {
+                throw new Exception("No es posible actualizar la Categoría");
+            }
         }
         else
         {
-            throw new Exception("El id de la categoría a actualizar no es válida");
+            throw new Exception("El id de la Categoría a actualizar no es válido");
         }
     }
 
-    [DataObjectMethod(DataObjectMethodType.Update)]
+    [DataObjectMethod(DataObjectMethodType.Delete)]
     public void DeleteCategory(int id)
     {
         CategoriesDAO dao = new CategoriesDAO();
-        Category updateCategory = dao.GetCategory(id);
-        if (updateCategory != null)
+        Category deleteCategory = dao.GetCategory(id);
+        if (deleteCategory != null)
         {
-            dao.DeleteCategory(updateCategory);
+            int result = dao.DeleteCategory(deleteCategory);
+            if (result < 1)
+            {
+                throw new Exception("No es posible eliminar la Categoría, por favor verificar que no existan Tipos de Productos asociados a la Categoría");
+            }
         }
         else
         {
-            throw new Exception("El id de la categoría a eliminar no es válida");
+            throw new Exception("El id de la Categoría a eliminar no es válido");
         }
     }
 }
