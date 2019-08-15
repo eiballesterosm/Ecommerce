@@ -22,8 +22,15 @@ public class CtrlCategories
     [DataObjectMethod(DataObjectMethodType.Insert, false)]
     public void InsertCategory(string name, string description)
     {
-        name = name.TrimEnd().TrimStart();
-        description = description.TrimEnd().TrimStart();
+        try
+        {
+            name = name.TrimEnd().TrimStart();
+            description = description.TrimEnd().TrimStart();
+        }
+        catch (Exception)
+        {
+            throw new Exception("No es posible registrar la Categoría");
+        }
 
         CategoriesDAO dao = new CategoriesDAO();
         List<Category> categories = GetAllCategories();
@@ -45,8 +52,15 @@ public class CtrlCategories
     [DataObjectMethod(DataObjectMethodType.Update)]
     public void UpdateCategory(int id, string name, string description)
     {
-        name = name.TrimEnd().TrimStart();
-        description = description.TrimEnd().TrimStart();
+        try
+        {
+            name = name.TrimEnd().TrimStart();
+            description = description.TrimEnd().TrimStart();
+        }
+        catch (Exception)
+        {
+            throw new Exception("No es posible registrar la Categoría");
+        }
 
         CategoriesDAO dao = new CategoriesDAO();
         List<Category> categories = GetAllCategories();

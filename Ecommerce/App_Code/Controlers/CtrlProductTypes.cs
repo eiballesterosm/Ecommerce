@@ -21,8 +21,15 @@ public class CtrlProductTypes
 
     public void InsertProductType(string name, string description, int categoryId)
     {
-        name = name.TrimEnd().TrimStart();
-        description = description.TrimEnd().TrimStart();
+        try
+        {
+            name = name.TrimEnd().TrimStart();
+            description = description.TrimEnd().TrimStart();
+        }
+        catch (Exception)
+        {
+            throw new Exception("No es posible registrar el Tipo de Producto");
+        }
 
         ProductTypesDAO dao = new ProductTypesDAO();
         List<ProductType> productTypes = GetAllProductTypes();
@@ -44,8 +51,15 @@ public class CtrlProductTypes
 
     public void UpdateProductType(string name, string description, int categoryId, int id)
     {
-        name = name.TrimEnd().TrimStart();
-        description = description.TrimEnd().TrimStart();
+        try
+        {
+            name = name.TrimEnd().TrimStart();
+            description = description.TrimEnd().TrimStart();
+        }
+        catch (Exception)
+        {
+            throw new Exception("No es posible registrar el Tipo de Producto");
+        }
 
         ProductTypesDAO dao = new ProductTypesDAO();
         List<ProductType> productTypes = GetAllProductTypes();

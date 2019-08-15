@@ -1,7 +1,8 @@
-﻿using System.Collections.Generic;
-using System.ComponentModel;
-using DAO;
+﻿using DAO;
 using Entities;
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
 
 /// <summary>
 /// Summary description for CtrlProducts
@@ -21,9 +22,18 @@ public class CtrlProducts
     public void InsertProduct(string name, int productTypeId, int brandId, string shortDescription, string longDescription, string price
         , string sizes, string colors, int stock)
     {
+        try
+        {
+            name = name.TrimEnd().TrimStart();
+            shortDescription = shortDescription.TrimEnd().TrimStart();
+        }
+        catch (Exception)
+        {
+            throw new Exception("No es posible registrar el Producto");
+        }
+
         ProductsDAO dao = new ProductsDAO();
         Product newProduct = new Product();
-        newProduct.name = name;
         newProduct.name = name;
         newProduct.productTypeId = productTypeId;
         newProduct.brandId = brandId;
@@ -39,6 +49,16 @@ public class CtrlProducts
     public void UpdateProduct(string name, int productTypeId, int brandId, string shortDescription, string longDescription, string price
         , string sizes, string colors, int stock, int id)
     {
+        try
+        {
+            name = name.TrimEnd().TrimStart();
+            shortDescription = shortDescription.TrimEnd().TrimStart();
+        }
+        catch (Exception)
+        {
+            throw new Exception("No es posible registrar el Producto");
+        }
+
         ProductsDAO dao = new ProductsDAO();
         Product updatedProduct = dao.GetProduct(id);
         if (updatedProduct != null)
@@ -53,6 +73,24 @@ public class CtrlProducts
             updatedProduct.colors = colors;
             updatedProduct.stock = stock;
             dao.UpdateProduct(updatedProduct);
+        }
+    }
+
+    public void DeleteProduct(int id)
+    {
+        ProductsDAO dao = new ProductsDAO();
+        Product deleteProduct = dao.GetProduct(id);
+        if (deleteProduct != null)
+        {
+            int result = dao.DeleteProduct(deleteProduct);
+            if (result < 1)
+            {
+                throw new Exception("No es posible eliminar el Producto");
+            }
+        }
+        else
+        {
+            throw new Exception("El id del Producto a eliminar no es válido");
         }
     }
 }
