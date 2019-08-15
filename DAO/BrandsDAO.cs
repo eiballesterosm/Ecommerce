@@ -1,9 +1,9 @@
-﻿using System;
+﻿using Entities;
+using Microsoft.Practices.EnterpriseLibrary.Data;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Common;
-using Entities;
-using Microsoft.Practices.EnterpriseLibrary.Data;
 using System.Linq;
 
 namespace DAO
@@ -42,6 +42,24 @@ namespace DAO
                 Database database = DatabaseFactory.CreateDatabase();
                 DbCommand command = database.GetStoredProcCommand(storedProcedureName);
                 database.AddInParameter(command, "@pOperation", DbType.Int32, 4);
+                AddParameters(brand, database, command);
+                result = database.ExecuteNonQuery(command);
+            }
+            catch (Exception)
+            {
+                //Crear Exception
+            }
+            return result;
+        }
+
+        public int DeleteBrand(Brand brand)
+        {
+            int result = -1;
+            try
+            {
+                Database database = DatabaseFactory.CreateDatabase();
+                DbCommand command = database.GetStoredProcCommand(storedProcedureName);
+                database.AddInParameter(command, "@pOperation", DbType.Int32, 5);
                 AddParameters(brand, database, command);
                 result = database.ExecuteNonQuery(command);
             }

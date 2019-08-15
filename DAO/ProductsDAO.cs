@@ -50,6 +50,24 @@ namespace DAO
             return result;
         }
 
+        public int DeleteProduct(Product product)
+        {
+            int result = -1;
+            try
+            {
+                Database dataBase = DatabaseFactory.CreateDatabase();
+                DbCommand command = dataBase.GetStoredProcCommand(storedProcedureName);
+                dataBase.AddInParameter(command, "@pOperation", DbType.Int32, 5);
+                AddParameters(product, dataBase, command);
+                return dataBase.ExecuteNonQuery(command);
+            }
+            catch (Exception ex)
+            {
+                //Crear Excepcion
+            }
+            return result;
+        }
+
         public List<Product> GetAllProducts()
         {
             List<Product> listAllProducts = null;
