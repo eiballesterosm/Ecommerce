@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using DevExpress.Web.ASPxClasses.Internal;
+using DevExpress.Web.Internal;
 
     public partial class LightMaster : System.Web.UI.MasterPage {
         protected void Page_Load(object sender, EventArgs e) {

@@ -1,5 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Light.master" AutoEventWireup="true" CodeFile="ProductImages.aspx.cs" Inherits="WebProductImages" %>
 
+<%@ Register Assembly="DevExpress.Web.v17.1, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" Namespace="DevExpress.Web" TagPrefix="dx" %>
+
 <asp:Content ContentPlaceHolderID="MainContent" runat="server">
     <script type="text/javascript">
         function OnFileUploadComplete(s, e) {
@@ -42,7 +44,7 @@
         AutoGenerateColumns="False"
         SettingsBehavior-ConfirmDelete="true"
         OnCustomCallback="gvProductImages_CustomCallback" SettingsText-ConfirmDelete="¿Desea eliminar la imagen del producto?">
-        <SettingsPager Visible="true" PageSize="10" />        
+        <SettingsPager Visible="true" PageSize="20" />        
         <Paddings Padding="0px" />
         <Border BorderWidth="0px" />
         <BorderBottom BorderWidth="1px" />        

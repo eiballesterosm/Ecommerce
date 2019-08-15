@@ -1,6 +1,5 @@
 ﻿using DAO;
-using DevExpress.Web.ASPxGridView;
-using DevExpress.Web.ASPxUploadControl;
+using DevExpress.Web;
 using Entities;
 using System;
 using System.IO;
@@ -41,7 +40,7 @@ public partial class WebProductImages : System.Web.UI.Page
         ctrlProductImages.InsertProductImage(Convert.ToInt32(Request.QueryString["productId"]), imageName);
     }
 
-    protected void gvProductImages_CustomCallback(object sender, DevExpress.Web.ASPxGridView.ASPxGridViewCustomCallbackEventArgs e)
+    protected void gvProductImages_CustomCallback(object sender, DevExpress.Web.ASPxGridViewCustomCallbackEventArgs e)
     {
         ASPxGridView gv = (ASPxGridView)sender;
         gv.DataBind();
