@@ -1,5 +1,7 @@
 <%@ Page Language="C#" AutoEventWireup="true" MasterPageFile="~/Light.master" CodeFile="Login.aspx.cs" Inherits="Login" %>
 
+<%@ Register Assembly="DevExpress.Web.v17.1, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" Namespace="DevExpress.Web" TagPrefix="dx" %>
+
 <asp:Content ID="MainContent" ContentPlaceHolderID="MainContent" runat="server">
     <div class="accountHeader">
     <h2>
@@ -28,3 +30,4 @@
     OnClick="btnLogin_Click">
 </dx:ASPxButton>
 </asp:Content>
+
