@@ -27,6 +27,8 @@
         ShowUploadButton="True"
         OnFileUploadComplete="Upload_FileUploadComplete"
         UploadButton-Text="CARGAR"
+         UploadMode="Advanced"
+        ShowProgressPanel="True"
         Width="20%">
         <ValidationSettings AllowedFileExtensions=".jpg,.jpeg,.jpe,.gif,.png">
         </ValidationSettings>
