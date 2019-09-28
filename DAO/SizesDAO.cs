@@ -8,11 +8,11 @@ using System.Linq;
 
 namespace DAO
 {
-    public class ProductImagesDAO
+    public class SizesDAO
     {
-        const string storedProcedureName = "[dbo].[sp_ProductImages]";
+        const string storedProcedureName = "[dbo].[sp_Sizes]";
 
-        public int CreateProductImage(ProductImage productImage)
+        public int CreateSize(Size size)
         {
             int result = -1;
             try
@@ -21,7 +21,7 @@ namespace DAO
                 DbCommand command = dataBase.GetStoredProcCommand(storedProcedureName);
                 dataBase.AddInParameter(command, "@pOperation", DbType.Int32, 1);
                 dataBase.AddOutParameter(command, "@pIdReturn", DbType.Int32, 0);
-                AddParameters(productImage, dataBase, command);
+                AddParameters(size, dataBase, command);
                 dataBase.ExecuteNonQuery(command);
                 result = Convert.ToInt32(dataBase.GetParameterValue(command, "@pIdReturn"));
             }
@@ -32,7 +32,7 @@ namespace DAO
             return result;
         }
 
-        public int UpdateProductImage(ProductImage productImage)
+        public int UpdateSize(Size size)
         {
             int result = -1;
             try
@@ -40,7 +40,7 @@ namespace DAO
                 Database dataBase = DatabaseFactory.CreateDatabase();
                 DbCommand command = dataBase.GetStoredProcCommand(storedProcedureName);
                 dataBase.AddInParameter(command, "@pOperation", DbType.Int32, 4);
-                AddParameters(productImage, dataBase, command);
+                AddParameters(size, dataBase, command);
                 return dataBase.ExecuteNonQuery(command);
             }
             catch (Exception ex)
@@ -50,7 +50,7 @@ namespace DAO
             return result;
         }
 
-        public int DeleteProductImage(int id)
+        public int DeleteSize(Size size)
         {
             int result = -1;
             try
@@ -58,7 +58,7 @@ namespace DAO
                 Database dataBase = DatabaseFactory.CreateDatabase();
                 DbCommand command = dataBase.GetStoredProcCommand(storedProcedureName);
                 dataBase.AddInParameter(command, "@pOperation", DbType.Int32, 5);
-                dataBase.AddInParameter(command, "@pId", DbType.Int32, id);
+                AddParameters(size, dataBase, command);
                 return dataBase.ExecuteNonQuery(command);
             }
             catch (Exception ex)
@@ -68,42 +68,41 @@ namespace DAO
             return result;
         }
 
-        public List<ProductImage> GetAllProductImages()
+        public List<Size> GetAllSizes()
         {
-            List<ProductImage> listAllProductImages = null;
+            List<Size> listAllSizes = null;
             try
             {
                 Database dataBase = DatabaseFactory.CreateDatabase();
                 DbCommand command = dataBase.GetStoredProcCommand(storedProcedureName);
                 dataBase.AddInParameter(command, "@pOperation", DbType.Int32, 2);
-                DataSet dsAllProductImages = dataBase.ExecuteDataSet(command);
-                if (dsAllProductImages != null && dsAllProductImages.Tables.Count > 0)
+                DataSet dsAllSizes = dataBase.ExecuteDataSet(command);
+                if (dsAllSizes != null && dsAllSizes.Tables.Count > 0)
                 {
-                    listAllProductImages = DAOUtilities.FillEntities<ProductImage>(dsAllProductImages.Tables[0]);
+                    listAllSizes = DAOUtilities.FillEntities<Size>(dsAllSizes.Tables[0]);
                 }
             }
             catch (Exception ex)
             {
                 //Crear Excepcion
             }
-            return listAllProductImages;
+            return listAllSizes;
         }
 
-
-        public ProductImage GetProductImage(int id)
+        public Size GetSize(int id)
         {
-            ProductImage productImage = null;
+            Size size = null;
             try
             {
                 Database dataBase = DatabaseFactory.CreateDatabase();
                 DbCommand command = dataBase.GetStoredProcCommand(storedProcedureName);
                 dataBase.AddInParameter(command, "@pOperation", DbType.Int32, 3);
                 dataBase.AddInParameter(command, "@pId", DbType.Int32, id);
-                DataSet dsAllProductImages = dataBase.ExecuteDataSet(command);
-                if (dsAllProductImages != null && dsAllProductImages.Tables.Count > 0)
+                DataSet dsAllSizes = dataBase.ExecuteDataSet(command);
+                if (dsAllSizes != null && dsAllSizes.Tables.Count > 0)
                 {
-                    productImage = DAOUtilities
-                        .FillEntities<ProductImage>(dsAllProductImages.Tables[0])
+                    size = DAOUtilities
+                        .FillEntities<Size>(dsAllSizes.Tables[0])
                         .FirstOrDefault();
                 }
             }
@@ -112,15 +111,14 @@ namespace DAO
                 //Crear Excepcion
             }
 
-            return productImage;
+            return size;
         }
 
-
-        private void AddParameters(ProductImage productImage, Database dataBase, DbCommand command)
+        private void AddParameters(Size size, Database dataBase, DbCommand command)
         {
-            dataBase.AddInParameter(command, "@pId", DbType.Int32, productImage.id);
-            dataBase.AddInParameter(command, "@pImage", DbType.String, productImage.image);
-            dataBase.AddInParameter(command, "@pProductId", DbType.Int32, productImage.productId);
+            dataBase.AddInParameter(command, "@pId", DbType.Int32, size.id);
+            dataBase.AddInParameter(command, "@pName", DbType.String, size.name);
+            dataBase.AddInParameter(command, "@pCategorySizeId", DbType.String, size.categorySizeId);
             dataBase.AddParameter(command, "@pIdReturn", DbType.Int32, ParameterDirection.ReturnValue
                 , null, DataRowVersion.Default, null);
         }

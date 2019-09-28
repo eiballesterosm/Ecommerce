@@ -120,6 +120,7 @@ namespace DAO
             dataBase.AddInParameter(command, "@pName", DbType.String, productType.name);
             dataBase.AddInParameter(command, "@pDescription", DbType.String, productType.description);
             dataBase.AddInParameter(command, "@pCategoryId", DbType.String, productType.categoryId);
+            dataBase.AddInParameter(command, "@pCategorySizeId", DbType.String, productType.categorySizeId);
             dataBase.AddParameter(command, "@pIdReturn", DbType.Int32, ParameterDirection.ReturnValue
                 , null, DataRowVersion.Default, null);
         }

@@ -124,10 +124,8 @@ namespace DAO
             dataBase.AddInParameter(command, "@pShortDescription", DbType.String, product.shortDescription);
             dataBase.AddInParameter(command, "@pLongDescription", DbType.String, product.longDescription);
             dataBase.AddInParameter(command, "@pProductTypeId", DbType.String, product.productTypeId);
-            dataBase.AddInParameter(command, "@pStock", DbType.Int32, product.stock);
             dataBase.AddInParameter(command, "@pBrandId", DbType.Int32, product.brandId);
-            dataBase.AddInParameter(command, "@pSizes", DbType.String, product.sizes);
-            dataBase.AddInParameter(command, "@pColors", DbType.String, product.colors);
+            dataBase.AddInParameter(command, "@pColorId", DbType.String, product.colorId);
             dataBase.AddParameter(command, "@pIdReturn", DbType.Int32, ParameterDirection.ReturnValue
                 , null, DataRowVersion.Default, null);
         }

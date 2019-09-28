@@ -25,7 +25,7 @@
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
-    <DefineConstants>TRACE</DefineConstants>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
@@ -42,12 +42,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="StockSizesDAO.cs" />
     <Compile Include="BrandsDAO.cs" />
     <Compile Include="CategorySizesDAO.cs" />
     <Compile Include="CategoriesDAO.cs" />
+    <Compile Include="ColorsDAO.cs" />
     <Compile Include="ProductImagesDAO.cs" />
     <Compile Include="ProductsDAO.cs" />
     <Compile Include="DAOUtilities.cs" />
+    <Compile Include="SizesDAO.cs" />
     <Compile Include="ProductTypesDAO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

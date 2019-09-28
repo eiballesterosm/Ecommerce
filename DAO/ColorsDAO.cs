@@ -8,11 +8,11 @@ using System.Linq;
 
 namespace DAO
 {
-    public class ProductImagesDAO
+    public class ColorDAO
     {
-        const string storedProcedureName = "[dbo].[sp_ProductImages]";
+        const string storedProcedureName = "[dbo].[sp_Colors]";
 
-        public int CreateProductImage(ProductImage productImage)
+        public int CreateColor(Color color)
         {
             int result = -1;
             try
@@ -21,7 +21,7 @@ namespace DAO
                 DbCommand command = dataBase.GetStoredProcCommand(storedProcedureName);
                 dataBase.AddInParameter(command, "@pOperation", DbType.Int32, 1);
                 dataBase.AddOutParameter(command, "@pIdReturn", DbType.Int32, 0);
-                AddParameters(productImage, dataBase, command);
+                AddParameters(color, dataBase, command);
                 dataBase.ExecuteNonQuery(command);
                 result = Convert.ToInt32(dataBase.GetParameterValue(command, "@pIdReturn"));
             }
@@ -32,7 +32,7 @@ namespace DAO
             return result;
         }
 
-        public int UpdateProductImage(ProductImage productImage)
+        public int UpdateColor(Color color)
         {
             int result = -1;
             try
@@ -40,7 +40,7 @@ namespace DAO
                 Database dataBase = DatabaseFactory.CreateDatabase();
                 DbCommand command = dataBase.GetStoredProcCommand(storedProcedureName);
                 dataBase.AddInParameter(command, "@pOperation", DbType.Int32, 4);
-                AddParameters(productImage, dataBase, command);
+                AddParameters(color, dataBase, command);
                 return dataBase.ExecuteNonQuery(command);
             }
             catch (Exception ex)
@@ -50,7 +50,7 @@ namespace DAO
             return result;
         }
 
-        public int DeleteProductImage(int id)
+        public int DeleteColor(int id)
         {
             int result = -1;
             try
@@ -68,42 +68,41 @@ namespace DAO
             return result;
         }
 
-        public List<ProductImage> GetAllProductImages()
+        public List<Color> GetAllColors()
         {
-            List<ProductImage> listAllProductImages = null;
+            List<Color> listAllColors = null;
             try
             {
                 Database dataBase = DatabaseFactory.CreateDatabase();
                 DbCommand command = dataBase.GetStoredProcCommand(storedProcedureName);
                 dataBase.AddInParameter(command, "@pOperation", DbType.Int32, 2);
-                DataSet dsAllProductImages = dataBase.ExecuteDataSet(command);
-                if (dsAllProductImages != null && dsAllProductImages.Tables.Count > 0)
+                DataSet dsAllColors = dataBase.ExecuteDataSet(command);
+                if (dsAllColors != null && dsAllColors.Tables.Count > 0)
                 {
-                    listAllProductImages = DAOUtilities.FillEntities<ProductImage>(dsAllProductImages.Tables[0]);
+                    listAllColors = DAOUtilities.FillEntities<Color>(dsAllColors.Tables[0]);
                 }
             }
             catch (Exception ex)
             {
                 //Crear Excepcion
             }
-            return listAllProductImages;
+            return listAllColors;
         }
 
-
-        public ProductImage GetProductImage(int id)
+        public Color GetColor(int id)
         {
-            ProductImage productImage = null;
+            Color color = null;
             try
             {
                 Database dataBase = DatabaseFactory.CreateDatabase();
                 DbCommand command = dataBase.GetStoredProcCommand(storedProcedureName);
                 dataBase.AddInParameter(command, "@pOperation", DbType.Int32, 3);
                 dataBase.AddInParameter(command, "@pId", DbType.Int32, id);
-                DataSet dsAllProductImages = dataBase.ExecuteDataSet(command);
-                if (dsAllProductImages != null && dsAllProductImages.Tables.Count > 0)
+                DataSet dsColor = dataBase.ExecuteDataSet(command);
+                if (dsColor != null && dsColor.Tables.Count > 0)
                 {
-                    productImage = DAOUtilities
-                        .FillEntities<ProductImage>(dsAllProductImages.Tables[0])
+                    color = DAOUtilities
+                        .FillEntities<Color>(dsColor.Tables[0])
                         .FirstOrDefault();
                 }
             }
@@ -112,15 +111,14 @@ namespace DAO
                 //Crear Excepcion
             }
 
-            return productImage;
+            return color;
         }
 
-
-        private void AddParameters(ProductImage productImage, Database dataBase, DbCommand command)
+        private void AddParameters(Color color, Database dataBase, DbCommand command)
         {
-            dataBase.AddInParameter(command, "@pId", DbType.Int32, productImage.id);
-            dataBase.AddInParameter(command, "@pImage", DbType.String, productImage.image);
-            dataBase.AddInParameter(command, "@pProductId", DbType.Int32, productImage.productId);
+            dataBase.AddInParameter(command, "@pId", DbType.Int32, color.id);
+            dataBase.AddInParameter(command, "@pName", DbType.String, color.name);
+            dataBase.AddInParameter(command, "@pColor", DbType.String, color.color);
             dataBase.AddParameter(command, "@pIdReturn", DbType.Int32, ParameterDirection.ReturnValue
                 , null, DataRowVersion.Default, null);
         }

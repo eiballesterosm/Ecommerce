@@ -8,11 +8,11 @@ using System.Linq;
 
 namespace DAO
 {
-    public class CategorySizesDAO
+    public class StockSizesDAO
     {
-        const string storedProcedureName = "[dbo].[sp_CategorySize]";
+        const string storedProcedureName = "[dbo].[sp_StockSizes]";
 
-        public int CreateCategorySize(CategorySize categorySize)
+        public int CreateStockSize(StockSize stockSize)
         {
             int result = -1;
 
@@ -22,11 +22,11 @@ namespace DAO
                 DbCommand command = database.GetStoredProcCommand(storedProcedureName);
                 database.AddInParameter(command, "@pOperation", DbType.Int32, 1);
                 database.AddOutParameter(command, "@pIdReturn", DbType.Int32, 0);
-                AddParameters(categorySize, database, command);
+                AddParameters(stockSize, database, command);
                 database.ExecuteNonQuery(command);
                 result = Convert.ToInt32(database.GetParameterValue(command, "@pIdReturn"));
             }
-            catch (Exception exc)
+            catch (Exception)
             {
                 //Crear Exception
             }
@@ -34,7 +34,7 @@ namespace DAO
             return result;
         }
 
-        public int UpdateCategorySize(CategorySize categorySize)
+        public int UpdateStockSize(StockSize stockSize)
         {
             int result = -1;
             try
@@ -42,17 +42,17 @@ namespace DAO
                 Database database = DatabaseFactory.CreateDatabase();
                 DbCommand command = database.GetStoredProcCommand(storedProcedureName);
                 database.AddInParameter(command, "@pOperation", DbType.Int32, 4);
-                AddParameters(categorySize, database, command);
+                AddParameters(stockSize, database, command);
                 result = database.ExecuteNonQuery(command);
             }
-            catch (Exception exc)
+            catch (Exception)
             {
                 //Crear Exception
             }
             return result;
         }
 
-        public int DeleteCategorySize(CategorySize categorySize)
+        public int DeleteStockSize(StockSize stockSize)
         {
             int result = -1;
             try
@@ -60,42 +60,42 @@ namespace DAO
                 Database database = DatabaseFactory.CreateDatabase();
                 DbCommand command = database.GetStoredProcCommand(storedProcedureName);
                 database.AddInParameter(command, "@pOperation", DbType.Int32, 5);
-                AddParameters(categorySize, database, command);
+                AddParameters(stockSize, database, command);
                 result = database.ExecuteNonQuery(command);
             }
-            catch (Exception exc)
+            catch (Exception)
             {
                 //Crear Exception
             }
             return result;
         }
 
-        public List<CategorySize> GetAllCategorySizes()
+        public List<StockSize> GetAllStockSizes()
         {
-            List<CategorySize> listAllCategories = null;
+            List<StockSize> listAllStockSizes = null;
 
             try
             {
                 Database database = DatabaseFactory.CreateDatabase();
                 DbCommand command = database.GetStoredProcCommand(storedProcedureName);
                 database.AddInParameter(command, "@pOperation", DbType.Int32, 2);
-                DataSet dsAllCategorySizes = database.ExecuteDataSet(command);
-                if (dsAllCategorySizes != null && dsAllCategorySizes.Tables.Count > 0)
+                DataSet dsAllStockSizes = database.ExecuteDataSet(command);
+                if (dsAllStockSizes != null && dsAllStockSizes.Tables.Count > 0)
                 {
-                    listAllCategories = DAOUtilities.FillEntities<CategorySize>(dsAllCategorySizes.Tables[0]);
+                    listAllStockSizes = DAOUtilities.FillEntities<StockSize>(dsAllStockSizes.Tables[0]);
                 }
             }
-            catch (Exception exc)
+            catch (Exception ex)
             {
                 //Crear Exception
             }
 
-            return listAllCategories;
+            return listAllStockSizes;
         }
 
-        public CategorySize GetCategorySize(int id)
+        public StockSize GetStockSize(int id)
         {
-            CategorySize categorySize = null;
+            StockSize stockSize = null;
 
             try
             {
@@ -103,26 +103,29 @@ namespace DAO
                 DbCommand command = database.GetStoredProcCommand(storedProcedureName);
                 database.AddInParameter(command, "@pOperation", DbType.Int32, 3);
                 database.AddInParameter(command, "@pId", DbType.Int32, id);
-                DataSet dsAllCategorySizes = database.ExecuteDataSet(command);
-                if (dsAllCategorySizes != null && dsAllCategorySizes.Tables.Count > 0)
+                DataSet dsStockSize = database.ExecuteDataSet(command);
+                if (dsStockSize != null && dsStockSize.Tables.Count > 0)
                 {
-                    categorySize = DAOUtilities.FillEntities<CategorySize>(dsAllCategorySizes.Tables[0])
+                    stockSize = DAOUtilities.FillEntities<StockSize>(dsStockSize.Tables[0])
                         .FirstOrDefault();
                 }
             }
-            catch (Exception exc)
+            catch (Exception)
             {
                 //Crear Exception
             }
-            return categorySize;
+            return stockSize;
         }
 
-        private void AddParameters(CategorySize categorySize, Database database, DbCommand command)
+
+
+        private void AddParameters(StockSize stockSize, Database database, DbCommand command)
         {
-            database.AddInParameter(command, "@pId", DbType.Int32, categorySize.id);
-            database.AddInParameter(command, "@pName", DbType.String, categorySize.name);
-            database.AddParameter(command, "@pIdReturn", DbType.Int32, ParameterDirection.ReturnValue
-                , null, DataRowVersion.Default, null);
+            database.AddInParameter(command, "@pId", DbType.Int32, stockSize.id);
+            database.AddInParameter(command, "@pProductId", DbType.Int32, stockSize.productId);
+            database.AddInParameter(command, "@pSizeId", DbType.Int32, stockSize.sizeId);
+            database.AddInParameter(command, "@pStock", DbType.Int32, stockSize.stock);
+            database.AddParameter(command, "@pIdReturn", DbType.Int32, ParameterDirection.ReturnValue, null, DataRowVersion.Default, null);
         }
     }
 }
