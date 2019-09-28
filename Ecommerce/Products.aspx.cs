@@ -115,4 +115,14 @@ public partial class WebProducts : System.Web.UI.Page
             ClientScript.RegisterStartupScript(this.GetType(), "Respuesta", string.Format("alert('{0}');", "¡El registro se insertó de forma correcta!"), true);
         }
     }
+
+    protected void gvProducts_StartRowEditing(object sender, ASPxStartRowEditingEventArgs e)
+    {
+        ((GridViewDataColumn)gvProducts.Columns["sizes"]).EditFormSettings.Visible = DevExpress.Utils.DefaultBoolean.False;
+    }
+
+    protected void gvProducts_InitNewRow(object sender, ASPxDataInitNewRowEventArgs e)
+    {
+        ((GridViewDataColumn)gvProducts.Columns["sizes"]).EditFormSettings.Visible = DevExpress.Utils.DefaultBoolean.False;
+    }
 }

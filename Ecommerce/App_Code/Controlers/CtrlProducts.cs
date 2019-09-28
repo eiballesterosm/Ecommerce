@@ -19,8 +19,16 @@ public class CtrlProducts
         return products;
     }
 
+    public Product GetProduct(int id)
+    {
+        Product product = new Product();
+        ProductsDAO dao = new ProductsDAO();
+        product = dao.GetProduct(id);
+        return product;
+    }
+
     public void InsertProduct(string name, int productTypeId, int brandId, string shortDescription, string longDescription, string price
-        , string sizes, string colors, int stock)
+        , int colorId, int stock)
     {
         try
         {
@@ -40,14 +48,13 @@ public class CtrlProducts
         newProduct.shortDescription = shortDescription;
         newProduct.longDescription = longDescription;
         newProduct.price = price;
-        newProduct.sizes = sizes;
-        newProduct.colors = colors;
+        newProduct.colorId = colorId;
         newProduct.stock = stock;
         dao.CreateProduct(newProduct);
     }
 
     public void UpdateProduct(string name, int productTypeId, int brandId, string shortDescription, string longDescription, string price
-        , string sizes, string colors, int stock, int id)
+        , int colorId, int stock, int id)
     {
         try
         {
@@ -56,7 +63,7 @@ public class CtrlProducts
         }
         catch (Exception)
         {
-            throw new Exception("No es posible registrar el Producto");
+            throw new Exception("No es posible actualizar el Producto");
         }
 
         ProductsDAO dao = new ProductsDAO();
@@ -69,10 +76,13 @@ public class CtrlProducts
             updatedProduct.shortDescription = shortDescription;
             updatedProduct.longDescription = longDescription;
             updatedProduct.price = price;
-            updatedProduct.sizes = sizes;
-            updatedProduct.colors = colors;
+            updatedProduct.colorId = colorId;
             updatedProduct.stock = stock;
-            dao.UpdateProduct(updatedProduct);
+            int result = dao.UpdateProduct(updatedProduct);
+            if (result < 1)
+            {
+                throw new Exception("No es posible actualizar el Producto");
+            }
         }
     }
 

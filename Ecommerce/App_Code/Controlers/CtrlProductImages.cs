@@ -12,12 +12,12 @@ public class CtrlProductImages
     [DataObjectMethod(DataObjectMethodType.Select, false)]
     public List<ProductImage> GetAllProductImages(int productId)
     {
-        List<ProductImage> ProductImages = new List<ProductImage>();
+        List<ProductImage> productImagesList = new List<ProductImage>();
         ProductImagesDAO dao = new ProductImagesDAO();
-        ProductImages = dao.GetAllProductImages();
+        productImagesList = dao.GetAllProductImages();
         //Filter by productID
-        ProductImages = ProductImages.FindAll(pi => pi.productId.Equals(productId));
-        return ProductImages;
+        productImagesList = productImagesList.FindAll(pi => pi.productId.Equals(productId));
+        return productImagesList;
     }
 
     public void InsertProductImage(int productId, string image)

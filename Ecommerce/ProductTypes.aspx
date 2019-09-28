@@ -29,12 +29,12 @@
                 <dx:GridViewDataTextColumn FieldName="id" VisibleIndex="1" Width="5%" Visible="false">
                 </dx:GridViewDataTextColumn>
                 <dx:GridViewDataTextColumn FieldName="name" Caption="Nombre"
-                    VisibleIndex="2" Width="25%">
+                    VisibleIndex="2" Width="24%">
                     <CellStyle HorizontalAlign="Left"></CellStyle>
                     <HeaderStyle Font-Bold="true" />
                 </dx:GridViewDataTextColumn>
                 <dx:GridViewDataTextColumn FieldName="description" Caption="Descripción"
-                    VisibleIndex="3" Width="50%">
+                    VisibleIndex="3" Width="30%">
                     <CellStyle HorizontalAlign="Left"></CellStyle>
                     <HeaderStyle Font-Bold="true" />
                 </dx:GridViewDataTextColumn>
@@ -66,7 +66,20 @@
                 <dx:GridViewDataComboBoxColumn Caption="Categoría"
                     FieldName="categoryId"
                     PropertiesComboBox-DataSourceID="odsCategories"
-                    Width="25%">
+                    Width="23%">
+                    <PropertiesComboBox
+                        TextField="name"
+                        ValueField="id"
+                        ValueType="System.Int32"
+                        DropDownStyle="DropDownList">
+                    </PropertiesComboBox>
+                    <HeaderStyle Font-Bold="true" />
+                    <CellStyle HorizontalAlign="Left"></CellStyle>
+                </dx:GridViewDataComboBoxColumn>
+                <dx:GridViewDataComboBoxColumn Caption="Categoría Talla"
+                    FieldName="categorySizeId"
+                    PropertiesComboBox-DataSourceID="odsCategorySizes"
+                    Width="23%">
                     <PropertiesComboBox
                         TextField="name"
                         ValueField="id"
@@ -111,6 +124,10 @@
         <asp:ObjectDataSource ID="odsCategories" runat="server"
             TypeName="CtrlCategories"
             SelectMethod="GetAllCategories"
+            OldValuesParameterFormatString="{0}"></asp:ObjectDataSource>
+        <asp:ObjectDataSource ID="odsCategorySizes" runat="server"
+            TypeName="CtrlCategorySizes"
+            SelectMethod="GetAllCategorySizes"
             OldValuesParameterFormatString="{0}"></asp:ObjectDataSource>
     </div>
 </asp:Content>

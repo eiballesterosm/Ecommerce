@@ -2,7 +2,10 @@
 <items>
   <item Text="Home" NavigateUrl="/Default.aspx" />
   <item Text="Categorías" NavigateUrl="/Categories.aspx"/>
+  <item Text="Categorías Tallas" NavigateUrl="/CategorySizes.aspx"/>
+  <item Text="Tallas" NavigateUrl="/Sizes.aspx"/>
   <item Text="Tipos de Productos" NavigateUrl="/ProductTypes.aspx"/>
   <item Text="Marcas" NavigateUrl="/Brands.aspx"/>
+  <item Text="Colores" NavigateUrl="/Colors.aspx"/>
   <item Text="Productos" NavigateUrl="/Products.aspx"/>
 </items>

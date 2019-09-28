@@ -19,6 +19,14 @@ public class CtrlProductTypes
         return productTypes;
     }
 
+    public ProductType GetProductType(int id)
+    {
+        ProductType productType = new ProductType();
+        ProductTypesDAO dao = new ProductTypesDAO();
+        productType = dao.GetProductType(id);
+        return productType;
+    }
+
     public void InsertProductType(string name, string description, int categoryId)
     {
         try
@@ -33,7 +41,7 @@ public class CtrlProductTypes
 
         ProductTypesDAO dao = new ProductTypesDAO();
         List<ProductType> productTypes = GetAllProductTypes();
-        if (productTypes.FindAll(p => (p.name.ToUpperInvariant().Equals(name.ToUpperInvariant())) && (p.categoryId != categoryId)).Count > 0)
+        if (productTypes.FindAll(p => (p.name.ToUpperInvariant().Equals(name.ToUpperInvariant())) && (p.categoryId == categoryId)).Count > 0)
         {
             throw new Exception("Ya existe un Tipo de Producto con este nombre");
         }

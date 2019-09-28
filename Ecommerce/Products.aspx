@@ -17,6 +17,8 @@
             EnableCallBacks="false"
             Width="100%"
             AutoGenerateColumns="False"
+            OnStartRowEditing="gvProducts_StartRowEditing"
+            OnInitNewRow="gvProducts_InitNewRow"
             OnRowValidating="gvProducts_RowValidating">
             <Paddings Padding="0px" />
             <Border BorderWidth="0px" />
@@ -87,22 +89,41 @@
                     <CellStyle HorizontalAlign="Left"></CellStyle>
                     <PropertiesTextEdit MaxLength="6"></PropertiesTextEdit>
                 </dx:GridViewDataTextColumn>
+                <dx:GridViewDataComboBoxColumn Caption="Color"
+                    FieldName="colorId"
+                    PropertiesComboBox-DataSourceID="odsColors"
+                    Width="10%">
+                    <PropertiesComboBox
+                        TextField="name"
+                        ValueField="id"
+                        ValueType="System.Int32"
+                        DropDownStyle="DropDownList">
+                    </PropertiesComboBox>
+                    <HeaderStyle Font-Bold="true" />
+                    <CellStyle HorizontalAlign="Left"></CellStyle>
+                </dx:GridViewDataComboBoxColumn>
                 <dx:GridViewDataTextColumn FieldName="sizes" Caption="Tallas" Width="8%">
                     <HeaderStyle Font-Bold="true" />
                     <PropertiesTextEdit MaxLength="20"></PropertiesTextEdit>
                     <CellStyle HorizontalAlign="Left"></CellStyle>
+                    <EditItemTemplate>
+                    </EditItemTemplate>
                 </dx:GridViewDataTextColumn>
-                <dx:GridViewDataTextColumn FieldName="colors" Caption="Color" Width="8%">
-                    <HeaderStyle Font-Bold="true" />
-                    <PropertiesTextEdit MaxLength="50"></PropertiesTextEdit>
-                    <CellStyle HorizontalAlign="Left"></CellStyle>
-                </dx:GridViewDataTextColumn>
-                <dx:GridViewDataSpinEditColumn FieldName="stock" Caption="Stock" Width="6%">
+                <%--<dx:GridViewDataSpinEditColumn FieldName="stock" Caption="Stock" Width="6%">
                     <HeaderStyle Font-Bold="true" />
                     <CellStyle HorizontalAlign="Left"></CellStyle>
                     <PropertiesSpinEdit MinValue="1" MaxValue="99"></PropertiesSpinEdit>
-                </dx:GridViewDataSpinEditColumn>
-                <dx:GridViewDataHyperLinkColumn FieldName="id" Caption="Imágenes" Width="12%" CellStyle-HorizontalAlign="Center">
+                </dx:GridViewDataSpinEditColumn>--%>
+                <dx:GridViewDataHyperLinkColumn FieldName="id" Caption="Stock" Width="8%" CellStyle-HorizontalAlign="Center">
+                    <HeaderStyle Font-Bold="true" />
+                    <CellStyle HorizontalAlign="Left"></CellStyle>
+                    <PropertiesHyperLinkEdit NavigateUrlFormatString="ProductStocks.aspx?productId={0}" Text="Ver">
+                    </PropertiesHyperLinkEdit>
+                    <EditItemTemplate>
+                        <dx:ASPxHyperLink ID="hlProductImages" runat="server" Text="Ver" NavigateUrl='<%# Eval("id", "ProductStocks.aspx?productId={0}") %>' />
+                    </EditItemTemplate>
+                </dx:GridViewDataHyperLinkColumn>
+                <dx:GridViewDataHyperLinkColumn FieldName="id" Caption="Imágenes" Width="10%" CellStyle-HorizontalAlign="Center">
                     <HeaderStyle Font-Bold="true" />
                     <CellStyle HorizontalAlign="Left"></CellStyle>
                     <PropertiesHyperLinkEdit NavigateUrlFormatString="ProductImages.aspx?productId={0}" Text="Ver">
@@ -129,6 +150,10 @@
         <asp:ObjectDataSource ID="odsBrands" runat="server"
             TypeName="CtrlBrands"
             SelectMethod="GetAllBrands"
+            OldValuesParameterFormatString="{0}"></asp:ObjectDataSource>
+        <asp:ObjectDataSource ID="odsColors" runat="server"
+            TypeName="CtrlColors"
+            SelectMethod="GetAllColors"
             OldValuesParameterFormatString="{0}"></asp:ObjectDataSource>
     </div>
 </asp:Content>

@@ -59,7 +59,7 @@ public class CtrlBrands
         }
         catch (Exception)
         {
-            throw new Exception("No es posible registrar la Marca");
+            throw new Exception("No es posible actualizar la Marca");
         }
 
         BrandsDAO dao = new BrandsDAO();
