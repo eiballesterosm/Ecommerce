@@ -35,11 +35,12 @@ namespace Entities
 
         public string brandName { get; set; }
 
-        [StringLength(20, ErrorMessage = "La longitud de las Tallas no es válida")]
         public string sizes { get; set; }
 
-        [StringLength(50, ErrorMessage = "La longitud de los Colores no es válida")]
-        public string colors { get; set; }
+        [Required(ErrorMessage = "El Color es requerido")]
+        public int colorId { get; set; }
+
+        public string colorName { get; set; }
     }
 
     public class ShoppingCartProduct

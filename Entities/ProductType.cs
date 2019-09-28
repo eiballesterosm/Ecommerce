@@ -19,5 +19,10 @@ namespace Entities
         public int categoryId { get; set; }
 
         public string categoryName { get; set; }
+
+        [Required(ErrorMessage = "La Categoría de Talla es requerida")]
+        public int categorySizeId { get; set; }
+
+        public string categorySizeName { get; set; }
     }
 }

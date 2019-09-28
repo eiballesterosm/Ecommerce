@@ -43,8 +43,11 @@
     <Compile Include="Brand.cs" />
     <Compile Include="CategorySize.cs" />
     <Compile Include="Category.cs" />
+    <Compile Include="Color.cs" />
+    <Compile Include="StockSize.cs" />
     <Compile Include="ProductImage.cs" />
     <Compile Include="Product.cs" />
+    <Compile Include="Size.cs" />
     <Compile Include="ProductType.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
