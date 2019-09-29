@@ -28,8 +28,6 @@ namespace Entities
 
         public string productTypeName { get; set; }
 
-        public int stock { get; set; }
-
         [Required(ErrorMessage = "La Marca es requerida")]
         public int brandId { get; set; }
 
