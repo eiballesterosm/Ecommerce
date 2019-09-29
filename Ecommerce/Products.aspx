@@ -27,6 +27,7 @@
             <SettingsEditing Mode="PopupEditForm"></SettingsEditing>
             <SettingsPopup EditForm-HorizontalAlign="Center" EditForm-VerticalAlign="WindowCenter"></SettingsPopup>
             <SettingsBehavior ConfirmDelete="true" />
+            <Settings ShowGroupPanel="false" ShowFilterRow="True"/>
             <Columns>
                 <dx:GridViewCommandColumn ShowEditButton="true" ShowNewButtonInHeader="true" ShowDeleteButton="true">
                 </dx:GridViewCommandColumn>
@@ -35,6 +36,7 @@
                 <dx:GridViewDataTextColumn FieldName="sku" Caption="SKU" Width="6%">
                     <HeaderStyle Font-Bold="true" />
                     <CellStyle HorizontalAlign="Left"></CellStyle>
+                    <Settings AutoFilterCondition="Contains" FilterMode="DisplayText" />
                     <EditItemTemplate>
                         <dx:ASPxLabel ID="labelCategoryName" runat="server" Text='<%# Eval("sku") %>' CssClass="editForm">
                         </dx:ASPxLabel>
@@ -43,6 +45,7 @@
                 <dx:GridViewDataTextColumn FieldName="name" Caption="Nombre" Width="14%">
                     <HeaderStyle Font-Bold="true" />
                     <CellStyle HorizontalAlign="Left"></CellStyle>
+                    <Settings AutoFilterCondition="Contains" FilterMode="DisplayText" />
                     <PropertiesTextEdit MaxLength="100"></PropertiesTextEdit>
                 </dx:GridViewDataTextColumn>
                 <dx:GridViewDataComboBoxColumn Caption="Tipo Producto"
@@ -83,7 +86,7 @@
                 </dx:GridViewDataTextColumn>
                 <dx:GridViewDataTextColumn FieldName="price" Caption="Precio" Width="8%">
                     <DataItemTemplate>
-                        <dx:ASPxLabel ID="ASPxLabel1" runat="server" Text='<%# "$"+Eval("price") %>'></dx:ASPxLabel>
+                        <dx:ASPxLabel ID="lblPrice" runat="server" Text='<%# "$"+Eval("price") %>'></dx:ASPxLabel>
                     </DataItemTemplate>
                     <HeaderStyle Font-Bold="true" />
                     <CellStyle HorizontalAlign="Left"></CellStyle>
@@ -114,7 +117,7 @@
                     <CellStyle HorizontalAlign="Left"></CellStyle>
                     <PropertiesSpinEdit MinValue="1" MaxValue="99"></PropertiesSpinEdit>
                 </dx:GridViewDataSpinEditColumn>--%>
-                <dx:GridViewDataHyperLinkColumn FieldName="id" Caption="Stock" Width="8%" CellStyle-HorizontalAlign="Center">
+                <dx:GridViewDataHyperLinkColumn FieldName="id" Caption="Stock" Width="8%" CellStyle-HorizontalAlign="Center" Settings-AllowAutoFilter="False">
                     <HeaderStyle Font-Bold="true" />
                     <CellStyle HorizontalAlign="Left"></CellStyle>
                     <PropertiesHyperLinkEdit NavigateUrlFormatString="ProductStocks.aspx?productId={0}" Text="Ver">
@@ -123,7 +126,7 @@
                         <dx:ASPxHyperLink ID="hlProductImages" runat="server" Text="Ver" NavigateUrl='<%# Eval("id", "ProductStocks.aspx?productId={0}") %>' />
                     </EditItemTemplate>
                 </dx:GridViewDataHyperLinkColumn>
-                <dx:GridViewDataHyperLinkColumn FieldName="id" Caption="Imágenes" Width="10%" CellStyle-HorizontalAlign="Center">
+                <dx:GridViewDataHyperLinkColumn FieldName="id" Caption="Imágenes" Width="10%" CellStyle-HorizontalAlign="Center" Settings-AllowAutoFilter="False">
                     <HeaderStyle Font-Bold="true" />
                     <CellStyle HorizontalAlign="Left"></CellStyle>
                     <PropertiesHyperLinkEdit NavigateUrlFormatString="ProductImages.aspx?productId={0}" Text="Ver">

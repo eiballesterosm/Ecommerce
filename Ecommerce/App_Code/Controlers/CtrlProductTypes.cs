@@ -27,12 +27,17 @@ public class CtrlProductTypes
         return productType;
     }
 
-    public void InsertProductType(string name, string description, int categoryId)
+    public void InsertProductType(string name, string description, int categoryId, int categorySizeId)
     {
         try
         {
             name = name.TrimEnd().TrimStart();
             description = description.TrimEnd().TrimStart();
+
+            if (categoryId < 1 || categorySizeId < 1)
+            {
+                throw new Exception("No es posible registrar el Tipo de Producto");
+            }
         }
         catch (Exception)
         {
@@ -50,6 +55,8 @@ public class CtrlProductTypes
         newProductType.name = name;
         newProductType.description = description;
         newProductType.categoryId = categoryId;
+        newProductType.categorySizeId = categorySizeId;
+
         int result = dao.CreateProductType(newProductType);
         if (result < 1)
         {
@@ -57,12 +64,17 @@ public class CtrlProductTypes
         }
     }
 
-    public void UpdateProductType(string name, string description, int categoryId, int id)
+    public void UpdateProductType(int id, string name, string description, int categoryId,int categorySizeId)
     {
         try
         {
             name = name.TrimEnd().TrimStart();
             description = description.TrimEnd().TrimStart();
+
+            if (id < 1 || categoryId < 1 || categorySizeId < 1)
+            {
+                throw new Exception("No es posible registrar el Tipo de Producto");
+            }
         }
         catch (Exception)
         {
@@ -83,6 +95,7 @@ public class CtrlProductTypes
             updatedProductType.name = name;
             updatedProductType.description = description;
             updatedProductType.categoryId = categoryId;
+            updatedProductType.categorySizeId = categorySizeId;
             int result = dao.UpdateProductType(updatedProductType);
             if (result < 1)
             {

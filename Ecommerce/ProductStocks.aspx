@@ -68,5 +68,7 @@
                 <asp:QueryStringParameter Name="productId" QueryStringField="productId" Type="Int32" />
             </SelectParameters>
         </asp:ObjectDataSource>
+        <br /><br />
+        <dx:ASPxButton ID="btnBack" runat="server" Text="Volver" OnClick="btnBack_Click"></dx:ASPxButton>
     </center>
 </asp:Content>

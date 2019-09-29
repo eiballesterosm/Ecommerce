@@ -3,6 +3,7 @@ using Entities;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Text.RegularExpressions;
 
 /// <summary>
 /// Summary description for CtrlBrands
@@ -29,7 +30,12 @@ public class CtrlColors
         }
         catch (Exception)
         {
-            throw new Exception("No es posible registrar la Marca");
+            throw new Exception("No es posible registrar el Color");
+        }
+
+        if (!ValidateHexColor(color))
+        {
+            throw new Exception("No es posible registrar el Color, el valor no es válido");
         }
 
         ColorDAO dao = new ColorDAO();
@@ -59,7 +65,12 @@ public class CtrlColors
         }
         catch (Exception)
         {
-            throw new Exception("No es posible registrar el Color");
+            throw new Exception("No es posible actualizar el Color");
+        }
+
+        if (!ValidateHexColor(color))
+        {
+            throw new Exception("No es posible actualizar el Color, el valor no es válido");
         }
 
         ColorDAO dao = new ColorDAO();
@@ -102,7 +113,18 @@ public class CtrlColors
         }
         else
         {
-            throw new Exception("El id del Color a actualizar no es válido");
+            throw new Exception("El id del Color a eliminar no es válido");
         }
+    }
+
+    private bool ValidateHexColor(string hexColor)
+    {
+        if (Regex.Match(hexColor, "^#(?:[0-9a-fA-F]{3}){1,2}$").Success)
+        {
+            return true;
+        }
+
+        System.Drawing.Color result = System.Drawing.Color.FromName(hexColor);
+        return result.IsKnownColor;
     }
 }

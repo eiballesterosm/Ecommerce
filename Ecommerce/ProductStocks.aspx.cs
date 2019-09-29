@@ -77,4 +77,9 @@ public partial class ProductStocks : System.Web.UI.Page
     {
 
     }
+
+    protected void btnBack_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("Products.aspx");
+    }
 }

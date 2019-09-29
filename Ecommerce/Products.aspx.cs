@@ -118,11 +118,15 @@ public partial class WebProducts : System.Web.UI.Page
 
     protected void gvProducts_StartRowEditing(object sender, ASPxStartRowEditingEventArgs e)
     {
-        ((GridViewDataColumn)gvProducts.Columns["sizes"]).EditFormSettings.Visible = DevExpress.Utils.DefaultBoolean.False;
+        ((GridViewDataColumn)gvProducts.Columns["Tallas"]).EditFormSettings.Visible = DevExpress.Utils.DefaultBoolean.False;
+        ((GridViewDataColumn)gvProducts.Columns["Imágenes"]).EditFormSettings.Visible = DevExpress.Utils.DefaultBoolean.False;
+        ((GridViewDataColumn)gvProducts.Columns["Stock"]).EditFormSettings.Visible = DevExpress.Utils.DefaultBoolean.False;
     }
 
     protected void gvProducts_InitNewRow(object sender, ASPxDataInitNewRowEventArgs e)
     {
-        ((GridViewDataColumn)gvProducts.Columns["sizes"]).EditFormSettings.Visible = DevExpress.Utils.DefaultBoolean.False;
+        ((GridViewDataColumn)gvProducts.Columns["Tallas"]).EditFormSettings.Visible = DevExpress.Utils.DefaultBoolean.False;
+        ((GridViewDataColumn)gvProducts.Columns["Imágenes"]).EditFormSettings.Visible = DevExpress.Utils.DefaultBoolean.False;
+        ((GridViewDataColumn)gvProducts.Columns["Stock"]).EditFormSettings.Visible = DevExpress.Utils.DefaultBoolean.False;
     }
 }

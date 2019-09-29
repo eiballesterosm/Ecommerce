@@ -3,7 +3,7 @@
 <%@ Register Assembly="DevExpress.Web.v17.1, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" Namespace="DevExpress.Web" TagPrefix="dx" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="Server">
-    <div style="margin: 0 auto; width: 50%; text-align: center">
+    <div style="margin: 0 auto; width: 30%;text-align: center">
         <br />
         <br />
         <h2>Marcas</h2>
@@ -23,6 +23,7 @@
             <SettingsPager Visible="true" PageSize="20" />
             <SettingsEditing Mode="EditFormAndDisplayRow"></SettingsEditing>
             <SettingsBehavior ConfirmDelete="true" />
+            <Settings ShowGroupPanel="false" ShowFilterRow="True"/>
             <Columns>
                 <dx:GridViewCommandColumn ShowEditButton="true" ShowNewButtonInHeader="true" ShowDeleteButton="true">
                 </dx:GridViewCommandColumn>
@@ -31,10 +32,14 @@
                 <dx:GridViewDataTextColumn FieldName="name" Caption="Nombre"
                     VisibleIndex="2" Width="25%">
                     <HeaderStyle Font-Bold="true" />
+                    <CellStyle HorizontalAlign="Left"></CellStyle>
+                    <PropertiesTextEdit MaxLength="50"></PropertiesTextEdit>
                 </dx:GridViewDataTextColumn>
                 <dx:GridViewDataTextColumn FieldName="description" Caption="Descripción"
                     VisibleIndex="3" Width="65%">
                     <HeaderStyle Font-Bold="true" />
+                    <CellStyle HorizontalAlign="Left"></CellStyle>
+                    <PropertiesTextEdit MaxLength="100"></PropertiesTextEdit>
                 </dx:GridViewDataTextColumn>
             </Columns>
         </dx:ASPxGridView>

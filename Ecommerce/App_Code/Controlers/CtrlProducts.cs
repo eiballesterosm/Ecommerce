@@ -27,8 +27,7 @@ public class CtrlProducts
         return product;
     }
 
-    public void InsertProduct(string name, int productTypeId, int brandId, string shortDescription, string longDescription, string price
-        , int colorId, int stock)
+    public void InsertProduct(string name, int productTypeId, int brandId, string shortDescription, string longDescription, string price, int colorId)
     {
         try
         {
@@ -49,12 +48,10 @@ public class CtrlProducts
         newProduct.longDescription = longDescription;
         newProduct.price = price;
         newProduct.colorId = colorId;
-        newProduct.stock = stock;
         dao.CreateProduct(newProduct);
     }
 
-    public void UpdateProduct(string name, int productTypeId, int brandId, string shortDescription, string longDescription, string price
-        , int colorId, int stock, int id)
+    public void UpdateProduct(int id, string name, int productTypeId, int brandId, string shortDescription, string longDescription, string price, int colorId)
     {
         try
         {
@@ -77,7 +74,6 @@ public class CtrlProducts
             updatedProduct.longDescription = longDescription;
             updatedProduct.price = price;
             updatedProduct.colorId = colorId;
-            updatedProduct.stock = stock;
             int result = dao.UpdateProduct(updatedProduct);
             if (result < 1)
             {

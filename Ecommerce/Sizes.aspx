@@ -3,7 +3,7 @@
 <%@ Register Assembly="DevExpress.Web.v17.1, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" Namespace="DevExpress.Web" TagPrefix="dx" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="Server">
-    <div style="margin: 0 auto; width: 50%; text-align: center">
+    <div style="margin: 0 auto; width: 30%; text-align: center">
         <br />
         <br />
         <h2>Tallas</h2>
@@ -23,13 +23,14 @@
             <SettingsPager Visible="true" PageSize="20" />
             <SettingsEditing Mode="EditFormAndDisplayRow"></SettingsEditing>
             <SettingsBehavior ConfirmDelete="true" />
+            <Settings ShowGroupPanel="false" ShowFilterRow="True"/>
             <Columns>
                 <dx:GridViewCommandColumn ShowEditButton="true" ShowNewButtonInHeader="true" ShowDeleteButton="true">
                 </dx:GridViewCommandColumn>
                 <dx:GridViewDataTextColumn FieldName="id" VisibleIndex="1" Width="5%" Visible="false">
                 </dx:GridViewDataTextColumn>
                 <dx:GridViewDataTextColumn FieldName="name" Caption="Nombre"
-                    VisibleIndex="2" Width="50%">
+                    VisibleIndex="2" Width="30%">
                     <CellStyle HorizontalAlign="Left"></CellStyle>
                     <HeaderStyle Font-Bold="true" />
                     <PropertiesTextEdit MaxLength="10"></PropertiesTextEdit>
@@ -37,7 +38,7 @@
                 <dx:GridViewDataComboBoxColumn Caption="Categoría"
                     FieldName="categorySizeId"
                     PropertiesComboBox-DataSourceID="odsCategorySizes"
-                    Width="50%">
+                    Width="70%">
                     <PropertiesComboBox
                         TextField="name"
                         ValueField="id"

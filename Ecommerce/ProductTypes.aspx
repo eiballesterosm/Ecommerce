@@ -23,6 +23,7 @@
             <SettingsPager Visible="true" PageSize="20" />
             <SettingsEditing Mode="EditFormAndDisplayRow"></SettingsEditing>
             <SettingsBehavior ConfirmDelete="true" />
+            <Settings ShowGroupPanel="false" ShowFilterRow="True"/>
             <Columns>
                 <dx:GridViewCommandColumn ShowEditButton="true" ShowNewButtonInHeader="true" ShowDeleteButton="true">
                 </dx:GridViewCommandColumn>

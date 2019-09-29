@@ -71,8 +71,8 @@
                     </PaneStyle>
                 </dx:SplitterPane>
 
-                <dx:SplitterPane Name="Footer" Size="125px" PaneStyle-CssClass="footerPane">
-                    <ContentCollection>
+                <dx:SplitterPane Name="Footer" Size="80px" PaneStyle-CssClass="footerPane">
+                    <%--<ContentCollection>
                         <dx:SplitterContentControl ID="SplitterContentControl4" runat="server">
                             <div class="footerMenu">
                             </div>
@@ -81,7 +81,7 @@
                                 </dx:ASPxLabel>
                             </div>
                         </dx:SplitterContentControl>
-                    </ContentCollection>
+                    </ContentCollection>--%>
                 </dx:SplitterPane>
             </Panes>
         </dx:ASPxSplitter>

@@ -46,4 +46,9 @@ public partial class WebProductImages : System.Web.UI.Page
         ASPxGridView gv = (ASPxGridView)sender;
         gv.DataBind();
     }
+
+    protected void btnBack_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("Products.aspx");
+    }
 }

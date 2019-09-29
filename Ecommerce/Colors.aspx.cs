@@ -1,4 +1,5 @@
 ﻿using DevExpress.Web;
+using DevExpress.Web.Data;
 using Entities;
 using System;
 using System.ComponentModel.DataAnnotations;
@@ -108,5 +109,15 @@ public partial class Colors : System.Web.UI.Page
         {
             ClientScript.RegisterStartupScript(this.GetType(), "Respuesta", string.Format("alert('{0}');", "Error. Por favor intente más tarde"), true);
         }
+    }
+
+    protected void gvColors_StartRowEditing(object sender, ASPxStartRowEditingEventArgs e)
+    {
+        ((GridViewDataColumn)gvColors.Columns["Ejemplo"]).EditFormSettings.Visible = DevExpress.Utils.DefaultBoolean.False;
+    }
+
+    protected void gvColors_InitNewRow(object sender, ASPxDataInitNewRowEventArgs e)
+    {
+        ((GridViewDataColumn)gvColors.Columns["Ejemplo"]).EditFormSettings.Visible = DevExpress.Utils.DefaultBoolean.False;
     }
 }
