@@ -31,6 +31,7 @@
                 </dx:GridViewDataTextColumn>
                 <dx:GridViewDataTextColumn FieldName="name" Caption="Nombre"
                     VisibleIndex="2" Width="30%">
+                    <Settings AutoFilterCondition="Contains" FilterMode="DisplayText" />
                     <CellStyle HorizontalAlign="Left"></CellStyle>
                     <HeaderStyle Font-Bold="true" />
                     <PropertiesTextEdit MaxLength="10"></PropertiesTextEdit>
