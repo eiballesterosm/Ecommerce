@@ -42,6 +42,11 @@
                     <Settings AutoFilterCondition="Contains" FilterMode="DisplayText" />
                     <HeaderStyle Font-Bold="true" />
                     <CellStyle HorizontalAlign="Left"></CellStyle>
+                    <EditItemTemplate>
+                        <dx:ASPxColorEdit runat="server" ID="colorPicker" EnableCustomColors="true"
+                            Text='<%# Bind("color") %>' Width="100%" ClearButton-DisplayMode="Auto">                           
+                        </dx:ASPxColorEdit>
+                    </EditItemTemplate>
                 </dx:GridViewDataTextColumn>
                 <dx:GridViewDataTextColumn FieldName="color" Caption="Ejemplo" Settings-AllowAutoFilter="False"
                     VisibleIndex="4" Width="35%">

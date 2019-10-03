@@ -55,6 +55,11 @@ public partial class Colors : System.Web.UI.Page
     {
         try
         {
+            //ASPxGridView gv = sender as ASPxGridView;
+            //GridViewDataColumn columnSearch = gv.Columns["color"] as GridViewDataColumn;
+            //ASPxColorEdit colorPicker = gv.FindEditRowCellTemplateControl(columnSearch, "colorPicker") as ASPxColorEdit;
+            //e.NewValues.Add(columnSearch.FieldName, colorPicker.Text);
+
             // Checks for null values. 
             foreach (GridViewColumn column in gvColors.Columns)
             {
