@@ -51,7 +51,7 @@ public partial class Colors : System.Web.UI.Page
         }
     }
 
-    protected void gvColors_RowValidating(object sender, DevExpress.Web.Data.ASPxDataValidationEventArgs e)
+    protected void gvColors_RowValidating(object sender, ASPxDataValidationEventArgs e)
     {
         try
         {
