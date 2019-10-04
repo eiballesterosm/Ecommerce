@@ -27,6 +27,8 @@ public class CtrlProducts
         return product;
     }
 
+    #region INSERT
+
     public void InsertProduct(string name, int productTypeId, int brandId, string shortDescription, string longDescription, string price, int colorId)
     {
         try
@@ -50,6 +52,11 @@ public class CtrlProducts
         newProduct.colorId = colorId;
         dao.CreateProduct(newProduct);
     }
+
+    #endregion
+
+
+    #region UPDATE
 
     public void UpdateProduct(int id, string name, int productTypeId, int brandId, string shortDescription, string longDescription, string price, int colorId)
     {
@@ -81,6 +88,38 @@ public class CtrlProducts
             }
         }
     }
+
+    public void UpdateProduct(int id, string name, int brandId, string shortDescription, string longDescription, string price, int colorId)
+    {
+        try
+        {
+            name = name.TrimEnd().TrimStart();
+            shortDescription = shortDescription.TrimEnd().TrimStart();
+        }
+        catch (Exception)
+        {
+            throw new Exception("No es posible actualizar el Producto");
+        }
+
+        ProductsDAO dao = new ProductsDAO();
+        Product updatedProduct = dao.GetProduct(id);
+        if (updatedProduct != null)
+        {
+            updatedProduct.name = name;
+            updatedProduct.brandId = brandId;
+            updatedProduct.shortDescription = shortDescription;
+            updatedProduct.longDescription = longDescription;
+            updatedProduct.price = price;
+            updatedProduct.colorId = colorId;
+            int result = dao.UpdateProduct(updatedProduct);
+            if (result < 1)
+            {
+                throw new Exception("No es posible actualizar el Producto");
+            }
+        }
+    }
+
+    #endregion
 
     public void DeleteProduct(int id)
     {

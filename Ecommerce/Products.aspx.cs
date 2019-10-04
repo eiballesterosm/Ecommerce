@@ -28,9 +28,17 @@ public partial class WebProducts : System.Web.UI.Page
                     GridViewDataColumn dataColumn = column as GridViewDataColumn;
                     if (dataColumn.Visible)
                     {
+                        //In editMode is not valid to change the ProductType
+                        if ((dataColumn.FieldName.ToUpper() == "productTypeId".ToUpper()) && (!e.IsNewRow))
+                        {
+                            continue;
+                        }
+
                         //Validations in model
                         StringLengthAttribute strLenAttr = Utils.GetLengthAttribute(typeof(Product), dataColumn.FieldName);
                         RequiredAttribute requiredAttr = Utils.GetRequiredAttribute(typeof(Product), dataColumn.FieldName);
+
+                        bool isNewRow = e.IsNewRow;
 
                         if (requiredAttr != null)
                         {
@@ -121,6 +129,7 @@ public partial class WebProducts : System.Web.UI.Page
         ((GridViewDataColumn)gvProducts.Columns["Tallas"]).EditFormSettings.Visible = DevExpress.Utils.DefaultBoolean.False;
         ((GridViewDataColumn)gvProducts.Columns["Imágenes"]).EditFormSettings.Visible = DevExpress.Utils.DefaultBoolean.False;
         ((GridViewDataColumn)gvProducts.Columns["Stock"]).EditFormSettings.Visible = DevExpress.Utils.DefaultBoolean.False;
+        ((GridViewDataColumn)gvProducts.Columns["Tipo Producto"]).EditFormSettings.Visible = DevExpress.Utils.DefaultBoolean.False;
     }
 
     protected void gvProducts_InitNewRow(object sender, ASPxDataInitNewRowEventArgs e)
@@ -128,5 +137,6 @@ public partial class WebProducts : System.Web.UI.Page
         ((GridViewDataColumn)gvProducts.Columns["Tallas"]).EditFormSettings.Visible = DevExpress.Utils.DefaultBoolean.False;
         ((GridViewDataColumn)gvProducts.Columns["Imágenes"]).EditFormSettings.Visible = DevExpress.Utils.DefaultBoolean.False;
         ((GridViewDataColumn)gvProducts.Columns["Stock"]).EditFormSettings.Visible = DevExpress.Utils.DefaultBoolean.False;
+        ((GridViewDataColumn)gvProducts.Columns["Tipo Producto"]).EditFormSettings.Visible = DevExpress.Utils.DefaultBoolean.True;
     }
 }

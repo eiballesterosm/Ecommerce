@@ -27,7 +27,7 @@
             <SettingsEditing Mode="PopupEditForm"></SettingsEditing>
             <SettingsPopup EditForm-HorizontalAlign="Center" EditForm-VerticalAlign="WindowCenter"></SettingsPopup>
             <SettingsBehavior ConfirmDelete="true" />
-            <Settings ShowGroupPanel="false" ShowFilterRow="True"/>
+            <Settings ShowGroupPanel="false" ShowFilterRow="True" />
             <Columns>
                 <dx:GridViewCommandColumn ShowEditButton="true" ShowNewButtonInHeader="true" ShowDeleteButton="true">
                 </dx:GridViewCommandColumn>
@@ -61,6 +61,17 @@
                     <HeaderStyle Font-Bold="true" />
                     <CellStyle HorizontalAlign="Left"></CellStyle>
                 </dx:GridViewDataComboBoxColumn>
+                <%--                <dx:GridViewDataColumn  Caption="Tipo Producto" FieldName="productTypeId" Width="10%">
+                    <DataItemTemplate>
+                        <dx:ASPxLabel ID="lblProductType" runat="server" Text='<%# Eval("productTypeName") %>'></dx:ASPxLabel>
+                    </DataItemTemplate>
+                    <EditItemTemplate>
+                        <dx:ASPxComboBox ID="ddlProductType" runat="server" Width="100%"
+                            ValueField="id" TextField="description" DataSourceID="odsProductTypes"></dx:ASPxComboBox>
+                    </EditItemTemplate>
+                    <HeaderStyle Font-Bold="true" />
+                    <CellStyle HorizontalAlign="Left"></CellStyle>
+                </dx:GridViewDataColumn>--%>
                 <dx:GridViewDataComboBoxColumn Caption="Marca"
                     FieldName="brandId"
                     PropertiesComboBox-DataSourceID="odsBrands"
@@ -78,11 +89,13 @@
                     <HeaderStyle Font-Bold="true" />
                     <CellStyle HorizontalAlign="Left"></CellStyle>
                     <PropertiesTextEdit MaxLength="100"></PropertiesTextEdit>
+                    <Settings AutoFilterCondition="Contains" FilterMode="DisplayText" />
                 </dx:GridViewDataTextColumn>
                 <dx:GridViewDataTextColumn FieldName="longDescription" Caption="Descripción" Width="14%">
                     <HeaderStyle Font-Bold="true" />
                     <CellStyle HorizontalAlign="Left"></CellStyle>
                     <PropertiesTextEdit MaxLength="500"></PropertiesTextEdit>
+                    <Settings AutoFilterCondition="Contains" FilterMode="DisplayText" />
                 </dx:GridViewDataTextColumn>
                 <dx:GridViewDataTextColumn FieldName="price" Caption="Precio" Width="8%">
                     <DataItemTemplate>
@@ -109,8 +122,7 @@
                     <HeaderStyle Font-Bold="true" />
                     <PropertiesTextEdit MaxLength="20"></PropertiesTextEdit>
                     <CellStyle HorizontalAlign="Left"></CellStyle>
-                    <EditItemTemplate>
-                    </EditItemTemplate>
+                    <Settings AutoFilterCondition="Contains" FilterMode="DisplayText" />
                 </dx:GridViewDataTextColumn>
                 <%--<dx:GridViewDataSpinEditColumn FieldName="stock" Caption="Stock" Width="6%">
                     <HeaderStyle Font-Bold="true" />
