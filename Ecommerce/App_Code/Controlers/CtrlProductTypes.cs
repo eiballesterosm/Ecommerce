@@ -27,6 +27,9 @@ public class CtrlProductTypes
         return productType;
     }
 
+
+    #region INSERT
+
     public void InsertProductType(string name, string description, int categoryId, int categorySizeId)
     {
         try
@@ -64,7 +67,11 @@ public class CtrlProductTypes
         }
     }
 
-    public void UpdateProductType(int id, string name, string description, int categoryId,int categorySizeId)
+    #endregion
+
+    #region UPDATE
+
+    public void UpdateProductType(int id, string name, string description, int categoryId, int categorySizeId)
     {
         try
         {
@@ -107,6 +114,51 @@ public class CtrlProductTypes
             throw new Exception("El id del Tipo de Producto a actualizar no es válido");
         }
     }
+
+    public void UpdateProductType(int id, string name, string description, int categoryId)
+    {
+        try
+        {
+            name = name.TrimEnd().TrimStart();
+            description = description.TrimEnd().TrimStart();
+
+            if (id < 1 || categoryId < 1)
+            {
+                throw new Exception("No es posible registrar el Tipo de Producto");
+            }
+        }
+        catch (Exception)
+        {
+            throw new Exception("No es posible registrar el Tipo de Producto");
+        }
+
+        ProductTypesDAO dao = new ProductTypesDAO();
+        List<ProductType> productTypes = GetAllProductTypes();
+        ProductType updatedProductType = productTypes.Find(p => p.id.Equals(id));
+        if (updatedProductType != null)
+        {
+            if (productTypes.FindAll(p => (p.name.ToUpperInvariant().Equals(name.ToUpperInvariant())) && (p.categoryId == categoryId) && (p.id != id)).Count > 0)
+            {
+                throw new Exception("Ya existe un Tipo de Producto con este nombre");
+            }
+
+            updatedProductType.name = name;
+            updatedProductType.description = description;
+            updatedProductType.categoryId = categoryId;
+            int result = dao.UpdateProductType(updatedProductType);
+            if (result < 1)
+            {
+                throw new Exception("No es posible actualizar el Tipo de Producto");
+            }
+        }
+        else
+        {
+            throw new Exception("El id del Tipo de Producto a actualizar no es válido");
+        }
+    }
+
+
+    #endregion
 
     public void DeleteProductType(int id)
     {

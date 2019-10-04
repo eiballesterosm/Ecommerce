@@ -16,7 +16,9 @@
             EnableCallBacks="false"
             Width="100%"
             AutoGenerateColumns="False"
-            OnRowValidating="gvProductTypes_RowValidating">
+            OnRowValidating="gvProductTypes_RowValidating"
+            OnStartRowEditing="gvProductTypes_StartRowEditing"
+            OnInitNewRow="gvProductTypes_InitNewRow">
             <Paddings Padding="0px" />
             <Border BorderWidth="0px" />
             <BorderBottom BorderWidth="1px" />

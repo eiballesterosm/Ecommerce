@@ -62,6 +62,12 @@ public partial class WebProductTypes : System.Web.UI.Page
                     GridViewDataColumn dataColumn = column as GridViewDataColumn;
                     if (dataColumn.Visible)
                     {
+                        //In editMode is not valid to change the CategorySize
+                        if ((dataColumn.FieldName.ToUpper() == "categorySizeId".ToUpper()) && (!e.IsNewRow))
+                        {
+                            continue;
+                        }
+
                         //Validations in model
                         StringLengthAttribute strLenAttr = Utils.GetLengthAttribute(typeof(ProductType), dataColumn.FieldName);
                         RequiredAttribute requiredAttr = Utils.GetRequiredAttribute(typeof(ProductType), dataColumn.FieldName);
@@ -108,5 +114,15 @@ public partial class WebProductTypes : System.Web.UI.Page
         {
             ClientScript.RegisterStartupScript(this.GetType(), "Respuesta", string.Format("alert('{0}');", "Error. Por favor intente más tarde"), true);
         }
+    }
+
+    protected void gvProductTypes_StartRowEditing(object sender, ASPxStartRowEditingEventArgs e)
+    {
+        ((GridViewDataColumn)gvProductTypes.Columns["Categoría Talla"]).EditFormSettings.Visible = DevExpress.Utils.DefaultBoolean.False;
+    }
+
+    protected void gvProductTypes_InitNewRow(object sender, ASPxDataInitNewRowEventArgs e)
+    {
+        ((GridViewDataColumn)gvProductTypes.Columns["Categoría Talla"]).EditFormSettings.Visible = DevExpress.Utils.DefaultBoolean.True;
     }
 }
