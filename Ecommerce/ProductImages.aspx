@@ -52,7 +52,7 @@
         AutoGenerateColumns="False"
         SettingsBehavior-ConfirmDelete="true"
         OnCustomCallback="gvProductImages_CustomCallback" SettingsText-ConfirmDelete="¿Desea eliminar la imagen del producto?">
-            <SettingsPager Visible="true" PageSize="20" />
+            <SettingsPager Visible="true" PageSize="20" AlwaysShowPager="true" />
             <Paddings Padding="0px" />
             <Border BorderWidth="0px" />
             <BorderBottom BorderWidth="1px" />

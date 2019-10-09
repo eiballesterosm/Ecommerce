@@ -32,7 +32,7 @@
             Width="20%"
             AutoGenerateColumns="False"
             OnRowValidating="gvProductStocks_RowValidating">
-            <SettingsPager Visible="true" PageSize="20" />
+            <SettingsPager Visible="true" PageSize="20" AlwaysShowPager="true" />
             <Paddings Padding="0px" />
             <Border BorderWidth="0px" />
             <BorderBottom BorderWidth="1px" />

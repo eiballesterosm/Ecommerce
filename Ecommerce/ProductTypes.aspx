@@ -22,7 +22,7 @@
             <Paddings Padding="0px" />
             <Border BorderWidth="0px" />
             <BorderBottom BorderWidth="1px" />
-            <SettingsPager Visible="true" PageSize="20" />
+            <SettingsPager Visible="true" PageSize="20" AlwaysShowPager="true" />
             <SettingsEditing Mode="EditFormAndDisplayRow"></SettingsEditing>
             <SettingsBehavior ConfirmDelete="true" />
             <Settings ShowGroupPanel="false" ShowFilterRow="True"/>
